@@ -220,12 +220,38 @@ header {
 }
 
 .mprojects h3{
+	color: #9B2929;
 	font-size: 2.5rem;
 }
 
 .mprojects p {
 	color: #531A4A;
 	font-family: 'Almarai';
+}
+
+.mprojects a {
+	margin: 15px auto;
+	height: 100px;
+	width: 75%;
+	box-sizing: border-box;
+	border: 2px solid #531A4A;
+	border-radius: 25px;
+	text-decoration: none;
+}
+
+.mprojects a:hover {
+	margin: 15px auto;
+	box-sizing: border-box;
+	border: 2px solid #531A4A;
+	border-radius: 10px;
+	text-decoration: none;
+}
+
+.mprojects a div {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
 }
 
 .projects-game-software-hr {
@@ -236,43 +262,32 @@ header {
 	opacity: 25%;
 }
 
-.project-div {
-	margin: 15px auto;
-	padding: 15px;
-	box-sizing: border-box;
-	border: 2px solid #531A4A;
-	border-radius: 20px;
-}
-
 
 /*---It's not Rocket Science!---------------*/
-#div-rocket {
-
-}
 
 
 /*---San Torii---------------*/
-#div-torii {
+.div-torii {
 
 }
 
 /*---The Adventures of Sprig and Gizmo---------------*/
-#div-adventures {
+.div-adventures {
 
 }
 
 /*---Stella's First Pet Café---------------*/
-#div-fmp {
+.div-fmp {
 
 }
 
 /*---Empolis Projektarbeit---------------*/
-#div-empolis {
+.div-empolis {
 
 }
 
 /*---Portfolio---------------*/
-#div-portfolio {
+.div-portfolio {
 
 }
 
