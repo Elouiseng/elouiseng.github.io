@@ -1,6 +1,7 @@
 /* Colors: #FCF0F0 #D1C8F4 #AE9DEF #9B2929 #531A4A */
 /* Fonts: Baskerville,Baskerville Old Face,Hoefler Text,Garamond,Times New Roman,serif;  'Almarai'; */
 
+/* #region */
 :root {
 } 
 
@@ -25,7 +26,10 @@ body {
 	
 }
 
-/*---HEADER-------------------------------------------------------------------------------------------*/
+/* #endregion */
+
+
+/* #region HEADER */
 
 header {
 	margin: 15px;
@@ -80,30 +84,48 @@ header {
 	border-top: 2px solid #531A4A;
 }
 
-/*---MAIN--------------------------------------------------------------------------------------------*/
+/* #endregion HEADER */
 
-main {
+
+/* #region MAIN-INDEX */
+
+.mindex {
     margin: 15px;
     padding: 15px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 75px;
 }
 
-.main h1 {
+.mindex h1 {
 	font-size: 5rem;
 	width: 100%;
 }
 
-.main p {
+.mindex p {
 	color: #531A4A;
 	font-family: 'Almarai';
 }
 
-/*---Main Contact--------------------*/
+.index-content-contact-hr {
+	width: 100%;
+	border: none;
+	border-top: 2px solid #531A4A;
+	opacity: 25%;
+}
+
+/*---Pinboard--------------------*/
+
+.notification-pinboard {
+	margin: 15px;
+	padding: 15px;
+}
+
+/*---Contact--------------------*/
     
-.main-div-contact {
+.div-contact {
+	margin: 15px;
+	padding: 15px;
 	width: 100%;
 	display: flex;
 	flex-direction: row;
@@ -123,10 +145,6 @@ main {
 	display: flex;
 	flex-direction: column;
 	gap: 5px;
-}
-
-.contact-form label {
-	
 }
 	
 .contact-form input, textarea {
@@ -165,7 +183,6 @@ main {
   opacity: 1 !important;
 }
 
-
 .contact-form textarea {
 	height: 100px;
 }
@@ -176,7 +193,6 @@ main {
 	resize: normal;
 }
 
-
 .main-footer-hr {
 	width: 95%;
 	margin: 0 auto;
@@ -184,8 +200,86 @@ main {
 	border-top: 2px solid #531A4A;
 }
 
-/*---Footer------------------------------------------------------------------------------------------*/
+/* #endregion MAIN */
 
+
+/* #region MAIN-PROJECTS */
+.mprojects {
+    margin: 15px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.mprojects h1 {
+	font-size: 5rem;
+	margin: 15px;
+	padding: 15px;
+	color: #531A4A;
+}
+
+.mprojects h3{
+	font-size: 2.5rem;
+}
+
+.mprojects p {
+	color: #531A4A;
+	font-family: 'Almarai';
+}
+
+.projects-game-software-hr {
+	width: 100%;
+	margin: auto;
+	border: none;
+	border-top: 2px solid #531A4A;
+	opacity: 25%;
+}
+
+.project-div {
+	margin: 15px auto;
+	padding: 15px;
+	box-sizing: border-box;
+	border: 2px solid #531A4A;
+	border-radius: 20px;
+}
+
+
+/*---It's not Rocket Science!---------------*/
+#div-rocket {
+
+}
+
+
+/*---San Torii---------------*/
+#div-torii {
+
+}
+
+/*---The Adventures of Sprig and Gizmo---------------*/
+#div-adventures {
+
+}
+
+/*---Stella's First Pet Café---------------*/
+#div-fmp {
+
+}
+
+/*---Empolis Projektarbeit---------------*/
+#div-empolis {
+
+}
+
+/*---Portfolio---------------*/
+#div-portfolio {
+
+}
+
+/* #endregion MAIN-PROJECTS */
+
+
+/* #region FOOTER */
 footer {
     margin: 15px;
     padding: 15px;
@@ -229,3 +323,4 @@ footer {
     .footer a:hover {
       color: #531A4A;
     }
+/* #endregion FOOTER */
