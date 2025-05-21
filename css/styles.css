@@ -26,6 +26,10 @@ body {
 	
 }
 
+button {
+	cursor: pointer;
+}
+
 /* #endregion */
 
 
@@ -221,44 +225,72 @@ header {
 
 .mprojects h3{
 	color: #9B2929;
-	font-size: 2.5rem;
+	font-size: 2.75rem;
 }
 
 .mprojects p {
 	color: #531A4A;
 	font-family: 'Almarai';
+	font-size: 1.25rem;
 }
 
 .mprojects a {
-	margin: 15px auto;
-	height: 125px;
-	width: 75%;
-	box-sizing: border-box;
-	border: 2px solid #531A4A;
-	border-radius: 25px;
-	text-decoration: none;
+    position: relative;
+    display: block;
+    margin: 15px auto;
+    height: 200px;
+    width: 75%;
+    box-sizing: border-box;
+    border: 2px solid #531A4A;
+    border-radius: 50px;
+    text-decoration: none;
+    overflow: hidden;
 }
 
 .mprojects a:hover {
-	margin: 15px auto;
-	box-sizing: border-box;
-	border: 2px solid #531A4A;
-	border-radius: 10px;
-	text-decoration: none;
+    border-radius: 10px;
+}
+
+.mprojects a:hover h3 {
+    color: #531A4A;
+}
+
+.mprojects a:hover p {
+    color: #9B2929;
+}
+
+.mprojects a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url('../pics/under_construction_gag.jpg') center center / cover no-repeat;
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+	border-radius: inherit;
+}
+
+.mprojects a:hover::before {
+    opacity: 0.5;
 }
 
 .mprojects a div {
-	width: 100%;
-	height: 100%;
-	margin: auto;
-	position: relative;
-	overflow: hidden;
-	text-align: center;
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .projects-game-software-hr {
 	width: 100%;
-	margin: auto;
+	margin: 10px auto;
 	border: none;
 	border-top: 2px solid #531A4A;
 	opacity: 25%;
@@ -266,35 +298,27 @@ header {
 
 
 /*---It's not Rocket Science!---------------*/
-
-
-/*---San Torii---------------*/
-.div-torii {
-
+.mprojects .a-rocket::before {
+    background: url('../pics/coolestitelbildyo.png') center center / cover no-repeat;
 }
 
-/*---The Adventures of Sprig and Gizmo---------------*/
-.div-adventures {
 
-}
-
-/*---Stella's First Pet Café---------------*/
-.div-fmp {
-
-}
-
-/*---Empolis Projektarbeit---------------*/
-.div-empolis {
-
-}
-
-/*---Portfolio---------------*/
-.div-portfolio {
-
-}
 
 /* #endregion MAIN-PROJECTS */
 
+.go-back-projects-bt {
+	margin: 20px;
+	padding: 10px;
+	border: none;
+	font-family: 'Almarai';
+	background-color: #D1C8F4;
+	color: #531A4A;
+	font-size: 1.25rem;
+}
+
+.go-back-projects-bt:hover {
+	text-decoration: underline;
+}
 
 /* #region FOOTER */
 footer {
