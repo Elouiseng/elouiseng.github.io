@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function handleSubmit(event) {
   event.preventDefault();
 
+
   try {
     // Get actual DOM nodes
     const nameElem = document.getElementById('cfname');
@@ -28,11 +29,14 @@ function handleSubmit(event) {
     
     // Check if any of the fields are empty
     if (!nameElem.value || !mailElem.value || !messageElem.value) {
-      nameElem.classList.add('contact-null-value-error');
-      mailElem.classList.add('contact-null-value-error');
-      messageElem.classList.add('contact-null-value-error');
-      // Optionally, you can stop further processing here if needed.
-    } else {
+		nameElem.classList.add('contact-null-value-error');
+    	mailElem.classList.add('contact-null-value-error');
+    	messageElem.classList.add('contact-null-value-error');
+		document.getElementById('cfbutton').style.color = "var(--background)";
+		document.getElementById('cfbutton').style.backgroundColor = "var(--border)";
+
+		return;
+	} else {
       // Remove the error class when inputs are valid
       nameElem.classList.remove('contact-null-value-error');
       mailElem.classList.remove('contact-null-value-error');
@@ -86,7 +90,7 @@ class MyFooter extends HTMLElement {
 		this.innerHTML = `
 			<hr class="main-footer-hr">
 			<footer class="footer">
-				<p>&#169 Elouiseng 2025</p>
+				<h3>&#169 Elouiseng 2025</h3>
 			</footer>
 		`;
 	}
