@@ -36,8 +36,21 @@ body h1, h2, h3, h4, h5, h6 {
 	color: var(--header);
 }
 
+main {
+	margin: 15px;
+	padding: 15px;
+}
+
 button {
 	cursor: pointer;
+}
+
+.inner-seperation-line {
+	width: 95%;
+	border: none;
+	border-top: 2px solid var(--border);
+	opacity: 0.5;
+	margin: 15px auto;
 }
 
 /* #endregion */
@@ -99,8 +112,6 @@ button {
 /* #region MAIN-INDEX */
 
 .mindex {
-    margin: 15px;
-    padding: 15px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -113,14 +124,6 @@ button {
 .mindex p {
 	color: var(--text);
 	font-family: 'Almarai';
-}
-
-.index-content-contact-hr {
-	width: 95%;
-	border: none;
-	border-top: 2px solid var(--border);
-	opacity: 0.5;
-	margin: 15px auto;
 }
 
 /*---Pinboard--------------------*/
@@ -235,8 +238,6 @@ button {
 
 /* #region MAIN-PROJECTS */
 .mprojects {
-    margin: 15px;
-    padding: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -268,7 +269,7 @@ button {
     height: 200px;
     width: 75%;
     box-sizing: border-box;
-    border: 2px solid var(--header);
+    border: 2px solid var(--border);
     border-radius: 50px;
     text-decoration: none;
     overflow: hidden;
@@ -312,30 +313,36 @@ button {
     text-align: center;
 }
 
-.projects-game-software-hr {
-	width: 100%;
-	margin: 10px auto;
-	border: none;
-	border-top: 2px solid var(--border);
-	opacity: 25%;
-}
-
-
 .mprojects .a-rocket::before {
     background: url('../pics/coolestitelbildyo.png') center center / cover no-repeat;
 }
 
-.mprojects .a-rocket::before {
-    background: url('../pics/coolestitelbildyo.png') center center / cover no-repeat;
+/*.mprojects .a-torii::before {
+    background: url('') center center / cover no-repeat;
 }
+
+.mprojects .a-adventures::before {
+    background: url('') center center / cover no-repeat;
+}
+
+.mprojects .a-fmp::before {
+    background: url('') center center / cover no-repeat;
+}*/
+
+.mprojects .a-empolis::before {
+    background: url('../pics/empolis_logo_full.jpg') center center / cover no-repeat;
+}
+
+/*.mprojects .a-portfolio::before {
+    background: url('') center center / cover no-repeat;
+}*/
 
 .go-back-projects-bt {
-	margin: 20px;
-	padding: 10px;
+	margin: 10px;
 	border: none;
 	font-family: 'Almarai';
 	background-color: var(--background);
-	color: var(--header);
+	color: var(--accent);
 	font-size: 1.25rem;
 }
 
@@ -345,6 +352,66 @@ button {
 
 
 /* #endregion MAIN-PROJECTS */
+
+
+/* #region MAIN-EMPOLIS */
+.mempolis-project .confi-dec {
+	width: fit-content;
+	margin: 15px auto;
+	padding: 15px;
+	font-weight: bold;
+	font-size: 1.15rem;
+	color: var(--accent);
+}
+
+.mempolis-project .introduction-div {
+	display: flex;
+	justify-content: space-between;
+}
+
+.mempolis-project .introduction-div img, .mempolis-project .introduction-div p {
+	margin: 15px;
+	padding: 15px;
+	max-width: 50%;
+}
+
+/*---Project Specifikations table-----------------*/
+.mempolis-project table {
+	margin: 15px auto;
+	margin-top: 25px;
+	padding: 15px;
+	width: 80%;
+	font-family: var(--headerFont);
+	color: var(--header);
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.mempolis-project caption {
+	margin: 15px;
+	margin-bottom: 0;
+	padding: 15px;
+	font-size: 1.5rem;
+	font-weight: bold;
+	border-bottom: 3px solid var(--accent);
+}
+
+.mempolis-project th, .mempolis-project td {
+	height: 50px;
+}
+
+.mempolis-project th {
+	width: 20%;
+	border-right: 3px solid var(--accent);
+}
+
+.mempolis-project table td {
+	font-family: var(--textFont);
+	color: var(--text);
+	padding: 5px 10px;
+}
+
+/* #endregion MAIN-EMPOLIS */
 
 /* #region FOOTER */
 footer {
