@@ -292,14 +292,14 @@ button {
     bottom: 0;
     left: 0;
     background: url('../pics/under_construction_gag.jpg') center center / cover no-repeat;
-    opacity: 0.3;
+    opacity: 0.4;
     transition: opacity 0.3s ease;
     z-index: 1;
 	border-radius: inherit;
 }
 
 .mprojects a:hover::before {
-    opacity: 0.5;
+    opacity: 0.7;
 }
 
 .mprojects a div {
@@ -317,11 +317,11 @@ button {
     background: url('../pics/coolestitelbildyo.png') center center / cover no-repeat;
 }
 
-/*.mprojects .a-torii::before {
-    background: url('') center center / cover no-repeat;
+.mprojects .a-torii::before {
+    background: url('../pics/san_torii_erstes_level.jpg') center center / cover no-repeat;
 }
 
-.mprojects .a-adventures::before {
+/*.mprojects .a-adventures::before {
     background: url('') center center / cover no-repeat;
 }
 
@@ -364,15 +364,29 @@ button {
 	color: var(--accent);
 }
 
-.mempolis-project .introduction-div {
+.introduction-div {
 	display: flex;
 	justify-content: space-between;
+	align-items: stretch;
 }
 
-.mempolis-project .introduction-div img, .mempolis-project .introduction-div p {
+.introduction-div img, 
+.introduction-div p {
 	margin: 15px;
 	padding: 15px;
-	max-width: 50%;
+	width: 50%;
+	box-sizing: border-box;
+}
+
+.introduction-div img {
+	height: auto;
+	object-fit: contain;
+	flex-shrink: 0;
+}
+
+.introduction-div p {
+	overflow: auto;
+	flex-grow: 1;
 }
 
 /*---Project Specifikations table-----------------*/
@@ -380,7 +394,7 @@ button {
 	margin: 15px auto;
 	margin-top: 25px;
 	padding: 15px;
-	width: 80%;
+	width: 85%;
 	font-family: var(--headerFont);
 	color: var(--header);
 	border-collapse: collapse;
