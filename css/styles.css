@@ -1,7 +1,14 @@
-/* Colors: #FCF0F0 #D1C8F4 #AE9DEF #9B2929 #531A4A */
-/* Fonts: Baskerville,Baskerville Old Face,Hoefler Text,Garamond,Times New Roman,serif;  'Almarai'; */
 
+/* #region */
 :root {
+	--background: #FCF9EF;
+	--accent: #d03b5b;
+	--text: #1d497a;
+	--border: #8f65a5;
+	--header: #051A45;
+
+	--headerFont: Baskerville,Baskerville Old Face,Hoefler Text,Garamond,Times New Roman,serif;
+	--textFont: 'Almarai';
 } 
 
 element.style {
@@ -15,32 +22,51 @@ element.style {
 } 
 
 html {
-	font-family: Baskerville,Baskerville Old Face,Hoefler Text,Garamond,Times New Roman,serif;
-	background-color: #D1C8F4;
-	color: #9B2929;
+	background-color: var(--background);
 	font-size: 1rem;	
 }
 
-body {
-	
+body p {
+	font-family: var(--textFont);
+	color: var(--text);
 }
 
-/*---HEADER-------------------------------------------------------------------------------------------*/
+body h1, h2, h3, h4, h5, h6 {
+	font-family: var(--headerFont);
+	color: var(--header);
+}
 
-header {
+main {
 	margin: 15px;
 	padding: 15px;
 }
 
+button {
+	cursor: pointer;
+}
+
+.inner-seperation-line {
+	width: 95%;
+	border: none;
+	border-top: 2px solid var(--border);
+	opacity: 0.5;
+	margin: 15px auto;
+}
+
+/* #endregion */
+
+
+/* #region HEADER */
 .header {
+	margin: 15px;
+	padding: 15px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	top: 0;
 	right: 0;
 	left: 0;
-	color: #9B2929;	
-	height: 75%;
+	color: var(--header);	
 }
 
 .header-title{
@@ -61,7 +87,7 @@ header {
 
 .header-nav a {
 	text-decoration: none;
-	color: inherit;
+	color: var(--text);
 }
 
 .header-nav a:hover {
@@ -70,49 +96,61 @@ header {
 
 .header-nav a:focus {
 	text-decoration: underline;
-	color: #AE9DEF;
+	color: var(--border);
 }
 
 .header-main-hr {
 	width: 95%;
 	margin: 0 auto;
 	border: none;
-	border-top: 2px solid #531A4A;
+	border-top: 2px solid var(--border);
 }
 
-/*---MAIN--------------------------------------------------------------------------------------------*/
+/* #endregion HEADER */
 
-main {
-    margin: 15px;
-    padding: 15px;
+
+/* #region MAIN-INDEX */
+
+.mindex {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 75px;
 }
 
-.main h1 {
+.mindex h1 {
 	font-size: 5rem;
-	width: 100%;
 }
 
-.main p {
-	color: #531A4A;
+.mindex p {
+	color: var(--text);
 	font-family: 'Almarai';
 }
 
-/*---Main Contact--------------------*/
+/*---Pinboard--------------------*/
+
+.notification-pinboard {
+	margin: 15px;
+	padding: 15px;
+}
+
+.notification-pinboard h2 {
+	color: red;
+}
+
+/*---Contact--------------------*/
     
-.main-div-contact {
-	width: 100%;
+.div-contact {
+	margin: 15px;
+	padding: 15px;
+	width: inherit;
 	display: flex;
 	flex-direction: row;
-	gap: 75px;
+	justify-content: space-between;
+	gap: 50px;
 }	
 
 .contact-section-text, .contact-form {
 	flex: 1;
-	width: 50%;
 }
 
 .contact-section-text p {
@@ -122,40 +160,53 @@ main {
 .contact-form {
 	display: flex;
 	flex-direction: column;
-	gap: 5px;
+	justify-content: space-evenly;
 }
 
 .contact-form label {
-	
+	font-family: var(--headerFont);
+	color: var(--headerFont);
+	margin-bottom: 3px;
+	font-size: 1.1rem;
 }
 	
 .contact-form input, textarea {
 	width: 100%;
-	height: 35px;
+	font-size: 0.9rem;
+	height: auto;
 	margin-bottom: 10px;
-	padding: 5px;
+	padding: 5px 8px;
 	box-sizing: border-box;
-	border: 2px solid #531A4A;
+	border: 2px solid var(--border);
 	border-radius: 20px;
-	background-color: #D1C8F4;
+	background-color: var(--background);
 }
 
 .contact-form button {
 	width: 25%;
-	height: 35px;
-	margin-bottom: 10px;
-	padding: 5px;
+	height: auto;
+	padding: 8px;
+	font-size: 1rem;
 	box-sizing: border-box;
-	border: 2px solid #531A4A;
+	border: none;
 	border-radius: 20px;
-	background-color: #531A4A;
-	color: #FCF0F0;
+	background-color: var(--border);
+	color: var(--background);
+}
+
+.contact-form button:hover {
+	border-radius: 10px;
+}
+
+.contact-form button:focus {
+	background-color: var(--accent);
+	color: var(--border);
 }
 
 .contact-form input::placeholder, textarea::placeholder {
-	color: #531A4A;
-	opacity: 50%;
-	font-family: Baskerville,Baskerville Old Face,Hoefler Text,Garamond,Times New Roman,serif;
+	color: var(--accent);
+	opacity: 0.8;
+	font-family: var(--headerFont)
 }
 
 /* Base styling for error on placeholder */
@@ -165,67 +216,225 @@ main {
   opacity: 1 !important;
 }
 
-
 .contact-form textarea {
 	height: 100px;
+	resize: vertical;
 }
 
 .contact-form input:focus, textarea:focus {
 	border-radius: 10px;
-	background-color: #FCF0F0;
-	resize: normal;
+	background-color: white;
 }
-
 
 .main-footer-hr {
 	width: 95%;
 	margin: 0 auto;
 	border: none;
-	border-top: 2px solid #531A4A;
+	border-top: 2px solid var(--border);
 }
 
-/*---Footer------------------------------------------------------------------------------------------*/
+/* #endregion MAIN */
 
+
+/* #region MAIN-PROJECTS */
+.mprojects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mprojects h1 {
+	align-self: flex-start;
+	font-size: 5rem;
+	margin: 15px;
+	padding: 15px;
+	color: var(--accent);
+}
+
+.mprojects h3{
+	color: var(--header);
+	font-size: 2.75rem;
+}
+
+.mprojects p {
+	color: var(--text);
+	font-family: 'Almarai';
+	font-size: 1.25rem;
+}
+
+.mprojects a {
+    position: relative;
+    display: block;
+    margin: 15px auto;
+    height: 200px;
+    width: 75%;
+    box-sizing: border-box;
+    border: 2px solid var(--border);
+    border-radius: 50px;
+    text-decoration: none;
+    overflow: hidden;
+}
+
+.mprojects a:hover {
+    border-radius: 10px;
+	font-weight: bold;
+}
+
+.mprojects a:hover h3 {
+    text-decoration: underline;
+}
+
+.mprojects a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url('../pics/under_construction_gag.jpg') center center / cover no-repeat;
+    opacity: 0.4;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+	border-radius: inherit;
+}
+
+.mprojects a:hover::before {
+    opacity: 0.7;
+}
+
+.mprojects a div {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.mprojects .a-rocket::before {
+    background: url('../pics/coolestitelbildyo.png') center center / cover no-repeat;
+}
+
+.mprojects .a-torii::before {
+    background: url('../pics/san_torii_erstes_level.jpg') center center / cover no-repeat;
+}
+
+/*.mprojects .a-adventures::before {
+    background: url('') center center / cover no-repeat;
+}
+
+.mprojects .a-fmp::before {
+    background: url('') center center / cover no-repeat;
+}*/
+
+.mprojects .a-empolis::before {
+    background: url('../pics/empolis_logo_full.jpg') center center / cover no-repeat;
+}
+
+/*.mprojects .a-portfolio::before {
+    background: url('') center center / cover no-repeat;
+}*/
+
+.go-back-projects-bt {
+	margin: 10px;
+	border: none;
+	font-family: 'Almarai';
+	background-color: var(--background);
+	color: var(--accent);
+	font-size: 1.25rem;
+}
+
+.go-back-projects-bt:hover {
+	text-decoration: underline;
+}
+
+
+/* #endregion MAIN-PROJECTS */
+
+
+/* #region MAIN-EMPOLIS */
+.mempolis-project .confi-dec {
+	width: fit-content;
+	margin: 15px auto;
+	padding: 15px;
+	font-weight: bold;
+	font-size: 1.15rem;
+	color: var(--accent);
+}
+
+.introduction-div {
+	display: flex;
+	justify-content: space-between;
+	align-items: stretch;
+}
+
+.introduction-div img, 
+.introduction-div p {
+	margin: 15px;
+	padding: 15px;
+	width: 50%;
+	box-sizing: border-box;
+}
+
+.introduction-div img {
+	height: auto;
+	object-fit: contain;
+	flex-shrink: 0;
+}
+
+.introduction-div p {
+	overflow: auto;
+	flex-grow: 1;
+}
+
+/*---Project Specifikations table-----------------*/
+.mempolis-project table {
+	margin: 15px auto;
+	margin-top: 25px;
+	padding: 15px;
+	width: 85%;
+	font-family: var(--headerFont);
+	color: var(--header);
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.mempolis-project caption {
+	margin: 15px;
+	margin-bottom: 0;
+	padding: 15px;
+	font-size: 1.5rem;
+	font-weight: bold;
+	border-bottom: 3px solid var(--accent);
+}
+
+.mempolis-project th, .mempolis-project td {
+	height: 50px;
+}
+
+.mempolis-project th {
+	width: 20%;
+	border-right: 3px solid var(--accent);
+}
+
+.mempolis-project table td {
+	font-family: var(--textFont);
+	color: var(--text);
+	padding: 5px 10px;
+}
+
+/* #endregion MAIN-EMPOLIS */
+
+/* #region FOOTER */
 footer {
     margin: 15px;
     padding: 15px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 40px;
+    justify-content: space-between;
 }
 
-.footer h2 {
-	font-size: 2rem;
-}
-
-.footer p {
-	color: #9B2929;
-	font-family: Baskerville,Baskerville Old Face,Hoefler Text,Garamond,Times New Roman,serif;
-	font-weight: bold;
-}
-	
-.footer p, label, li {
-
-}
-    
-
-/*---Footer Impressum------------------*/
-
-    .footer-div-impressum h1 {
-      font-size: 1.8rem;
-      margin-bottom: 10px;
-      color: #531A4A;
-      border-bottom: 2px solid #531A4A;
-      padding-bottom: 5px;
-    }
- 
-    .footer a {
-      text-decoration: none;
-      color: #9B2929;
-      transition: color 0.3s ease;
-    }
-    
-    .footer a:hover {
-      color: #531A4A;
-    }
+/* #endregion FOOTER */
