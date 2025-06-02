@@ -275,6 +275,7 @@ button {
     overflow: hidden;
 }
 
+/* Hover effect for links */
 .mprojects a:hover {
     border-radius: 10px;
 	font-weight: bold;
@@ -284,27 +285,37 @@ button {
     text-decoration: underline;
 }
 
+/* 
+  Create a pseudo-element that sits behind the <a> and fills its entire box
+  Use it for the semi-transparent background image
+*/
 .mprojects a::before {
-    content: "";
+    content: "";			/*Generates an empty box before the link's content*/
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    background: url('../pics/under_construction_gag.jpg') center center / cover no-repeat;
+    background: url('../pics/under_construction_gag.jpg') center center / cover no-repeat; /*Default placeholder image*/
     opacity: 0.4;
     transition: opacity 0.3s ease;
-    z-index: 1;
+    z-index: 1;				/*Place it behind the link's text*/
 	border-radius: inherit;
 }
 
+/* 
+  On hover, increase the pseudo-element’s opacity for a more visible image 
+*/
 .mprojects a:hover::before {
     opacity: 0.7;
 }
 
+/* 
+	Style the actual content container inside the link so it sits on top of the pseudo-element
+*/
 .mprojects a div {
     position: relative;
-    z-index: 2;
+    z-index: 2;				/*Z-index above the ::before element*/
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -313,6 +324,9 @@ button {
     text-align: center;
 }
 
+/* 
+	Override the default background for a specific link by class (this rule comes *after* the general .mprojects a::before rule)
+*/
 .mprojects .a-rocket::before {
     background: url('../pics/coolestitelbildyo.png') center center / cover no-repeat;
 }
@@ -354,7 +368,7 @@ button {
 /* #endregion MAIN-PROJECTS */
 
 
-/* #region MAIN-EMPOLIS */
+/* #region MAIN-EMPOLIS & MAIN-SAN TORII */
 .mempolis-project .confi-dec {
 	width: fit-content;
 	margin: 15px auto;
@@ -425,7 +439,21 @@ button {
 	padding: 5px 10px;
 }
 
-/* #endregion MAIN-EMPOLIS */
+/*---San Torii text-----------------*/
+.msan-torii .introduction-div a {
+	color: var(--accent);
+}
+/* #endregion MAIN-EMPOLIS & MAIN-SAN TORII */
+
+
+/* #region MAIN-ITS NOT ROCKET SCIENCE */
+.mrocket-science iframe {
+	width: 100%;
+	height: 500px;
+	margin: auto;
+}
+/* #endregion */
+
 
 /* #region FOOTER */
 footer {
