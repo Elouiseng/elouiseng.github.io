@@ -1,0 +1,654 @@
+<!DOCTYPE html>	
+<html lang="de">
+    <head>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Its not Rocket Science!</title>
+        <link rel="icon" type="image/x-icon" href="pics/spieleRelevant/explosiv.png">
+		<link rel="stylesheet" href="css/layout.css">
+        <script src="js/chart.js"></script> <!--PlugIn Graph von https://www.chartjs.org/-->
+        <script src="js/jquery-3.5.0.min.js"></script>
+        <script src="js/funktionen/funktionen.js"></script>
+        <script src="js/allg.js"></script>
+    </head>
+    <body>
+        <div id="all">
+            <button class="optionsButton"></button>
+            <div id="optionsMenu">
+                <h1>Options-Menu</h1>
+                <audio controls loop hidden><source id='audiosrc' src='music/background_music.mp3' type='audio/mp3'></audio>
+                <div class="audioOptions">
+                    <h1 class="audioText">Audio: </h1>
+                    <input type="range" class="audioRegler" max="1" min="0" step="0.1">
+                    <button class="musicButton" name="audioAn"><img src="pics/audio/play-taste.png" alt="audio_play_button" height="60" width="60"></button>
+                </div>
+                <button class="loeschen">Dateien Löschen</button>
+                <button class="speichern">Speichern</button>
+                <button class="hauptmenu">Zurück zum Hauptmenü</button>
+                <button class="optionsClose"></button>
+            </div>       
+            <nav id="leben">
+                <div class="lebensleiste">
+                    <img src="pics/spieleRelevant/trank.png" alt="trank" class="leben1">
+                    <img src="pics/spieleRelevant/trank.png" alt="trank" class="leben2">
+                    <img src="pics/spieleRelevant/trank.png" alt="trank" class="leben3">
+                </div>
+            </nav>
+            <div id='titelBildschirm'>
+            </div>
+            <div id='namenfeld'>
+                <div>
+                    <p>Its not Rocket Science! <br> Dein Name:</p>
+                    <input type='text' name='text'>
+                    <button class="weiter">Weiter</button>
+                </div>
+            </div>
+            <div id='begrueßung'>
+                <img src="pics/spieleRelevant/avatar_standing.png" alt="Professor" width="300" height="600">
+                <div class="sprechblase">
+                    <br>
+                    <p class="teil1">Mein Name ist Professor Professorson. <br> Ich danke dir, dass du dich heute bereit erklärt hast, in meinem Labor auszuhelfen. <br> Wir werden viele spannende Experimente durchführen. Mach dich Bereit, am Ende wird es eine Belohnung geben!</p>
+                    <br>
+                    <p class="teil2">Zuerst werde ich dir erklären wie das Experiment funktioniert und was du zutun hast. Dann darfst du dein Wissen einsetzen und die Aufgaben lösen. Wenn du Schwierigkeiten hast, frage deine Eltern oder andere Laborkollegen.</p>
+                </div>
+                <button><img src="pics/spieleRelevant/anlaufen.png" alt="weiter" width="65" height="65"></button>
+            </div>  
+            <div id="menu">
+                <img src="pics/spieleRelevant/avatar_standing.png" alt="Professor" width="300" height="600">
+                <div class="reden">
+                    <p>Bitte wähle einen Bereich aus, den du bearbeiten möchtest: </p>
+                </div>
+                <div class="sprechblase">
+                    <div class="container">
+                        <canvas id="myChart"></canvas>
+                    </div>
+                    <button class="phybt"></button>
+                    <p class="pPhysik">Physik</p>
+                    <button class="chebt"></button>
+                    <p class="pChemie">Chemie</p>
+                    <button class="biobt"></button>
+                    <p class="pBio">Biologie</p>
+                    <p class="pAllg">0 / 3</p>
+                    <button class="abschlussbt"><img src="pics/spieleRelevant/anlaufen.png" alt="weiter" width="65" height="65"></button>
+                </div>
+            </div>
+            <div id="biologie">
+                <div class="bio1">
+                    <div class="tutorial">
+                        <img src="pics/spieleRelevant/avatar_talking.png" alt="spricht" class="kopf">
+                        <img src="pics/biologie/aufbau_blume.png" alt="anatomy blume" class="bild">
+                        <img src="pics/spieleRelevant/linker-pfeil.png" alt="Pfeil" class="pfeil">
+                        <div class="sprechblase">
+                            <p></p>
+                            <button class="z">Zurück</button><button class="w">Weiter</button>
+                        </div>
+                        <button class="knopp"><img src="pics/spieleRelevant/anlaufen.png" alt="weiter" width="65" height="65"></button>
+                    </div>
+                    <div class="bio1spiel">
+                            <div class="ausgewaehlie">
+                                <p class="ausgewaehltes">Du hast nichts Ausgewählt.</p>
+                            </div>
+                            <div class="tisch">
+                                <img src="pics/biologie/worte/bluetenblatt.png" alt="blüte" name="Blütenblatt">
+                                <img src="pics/biologie/worte/bluetenboden.png" alt="blütenboden" name="Blütenboden">
+                                <img src="pics/biologie/worte/fruchtknoten.png" alt="fruchtknoten" name="Fruchtknoten">
+                                <img src="pics/biologie/worte/griffel.png" alt="griffel" name="Griffel">
+                                <img src="pics/biologie/worte/kelchblatt.png" alt="kelchblatt" name="Kelchblatt">
+                                <img src="pics/biologie/worte/narbe.png" alt="narbe" name="Narbe">
+                                <img src="pics/biologie/worte/staengel.png" alt="staengel" name="Stängel">
+                                <img src="pics/biologie/worte/staubblatt.png" alt="staubblatt" name="Staubblatt">
+                            </div>
+                            <div class="rätsel">
+                            </div>
+                            <span>
+                                <button class="knopp1" name="Blütenblatt"></button>
+                                <button class="knopp2" name="Staubblatt"></button>
+                                <button class="knopp3" name="Fruchtknoten"></button>
+                                <button class="knopp4" name="Blütenboden"></button>
+                                <button class="knopp5" name="Stängel"></button>
+                                <button class="knopp6" name="Kelchblatt"></button>
+                                <button class="knopp8" name="Griffel"></button>
+                                <button class="knopp9" name="Narbe"></button>
+                            </span>
+                            <div class="gewonnen">
+                                <p>Du hast es Geschafft! Ich hoffe du konntest etwas bei der Aufgabe lernen! Mach dich bereit auf das nächste Thema, denn dieses wird dein Wissen herausfordern.</p>
+                                <button class="menu">HauptMenu</button>
+                                <button class="weiter">Weiter</button>
+                            </div>
+                    </div>
+                </div>
+                <div class="bio2">
+                    <div class="tutorial">
+                        <img src="pics/spieleRelevant/avatar_talking.png" alt="spricht" class="kopf">
+                        <img src="pics/biologie/anatomie_hund.png" alt="hund" class="bild">
+                        <img src="pics/spieleRelevant/linker-pfeil.png" alt="Pfeil" class="pfeil">
+                        <div class="sprechblase">
+                            <p></p>
+                            <button class="z">Zurück</button><button class="w">Weiter</button>
+                        </div>
+                        <button class="knopp"><img src="pics/spieleRelevant/anlaufen.png" alt="weiter" width="65" height="65"></button>
+                    </div>
+                    <div class="bio2spiel">
+                        <div class="ausgewaehlie">
+                            <p class="ausgewaehltes">Du hast nichts Ausgewählt.</p>
+                        </div>
+                        <div class="tisch">
+                            <img src="pics/biologie/worte/becken.png" alt="becken" name="Becken">
+                            <img src="pics/biologie/worte/halswirbel.png" alt="halswirbel" name="Halswirbel">
+                            <img src="pics/biologie/worte/oberarmknochen.png" alt="oberarmknochen" name="Oberarmknochen">
+                            <img src="pics/biologie/worte/oberschenkelknochen.png" alt="oberschenkelknochen" name="Oberschenkelknochen">
+                            <img src="pics/biologie/worte/rippen.png" alt="rippen" name="Rippen">
+                            <img src="pics/biologie/worte/schaedel.png" alt="schaedel" name="Schädel">
+                            <img src="pics/biologie/worte/schulterblatt.png" alt="schulterblatt" name="Schulterblatt">
+                            <img src="pics/biologie/worte/schwanzwirbel.png" alt="schwanzwirbel" name="Schwanzwirbel">
+                        </div>
+                        <div class="rätsel">
+                        </div>
+                        <span>
+                            <button class="knopp1" name="Becken"></button>
+                            <button class="knopp2" name="Halswirbel"></button>
+                            <button class="knopp3" name="Oberarmknochen"></button>
+                            <button class="knopp4" name="Oberschenkelknochen"></button>
+                            <button class="knopp5" name="Rippen"></button>
+                            <button class="knopp6" name="Schädel"></button>
+                            <button class="knopp8" name="Schulterblatt"></button>
+                            <button class="knopp9" name="Schwanzwirbel"></button>
+                        </span>
+                        <div class="gewonnen">
+                            <p>Du hast es Geschafft! Ich hoffe du konntest etwas bei der Aufgabe lernen! Mach dich bereit auf das nächste Thema, denn dieses wird dein Wissen herausfordern.</p>
+                            <button class="menu">HauptMenu</button>
+                            <button class="weiter">Weiter</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bio3">
+                    <div class="tutorial">
+                        <img src="pics/spieleRelevant/avatar_talking.png" alt="spricht" class="kopf">
+                        <img src="pics/biologie/anatomie_tutorial.png" alt="anatomie mensch" class="bild">
+                        <img src="pics/spieleRelevant/linker-pfeil.png" alt="pfeil" class="pfeil">
+                        <div class="sprechblase">
+                            <p></p>
+                            <button class="z">Zurück</button><button class="w">Weiter</button>
+                        </div>
+                        <button class="knopp"><img src="pics/spieleRelevant/anlaufen.png" alt="weiter" width="65" height="65"></button>
+                    </div>
+                    <div class="bio3spiel">
+                        <div class="ausgewaehlie">
+                            <p class="ausgewaehltes">Du hast nichts Ausgewählt.</p>
+                        </div>
+                        <div class="tisch">
+                            <img src="pics/biologie/worte/darm.png" alt="darm" name="Darm">
+                            <img src="pics/biologie/worte/gehirn.png" alt="gehirn" name="Gehirn">
+                            <img src="pics/biologie/worte/herz.png" alt="herz" name="Herz">
+                            <img src="pics/biologie/worte/leber.png" alt="leber" name="Leber">
+                            <img src="pics/biologie/worte/lungen.png" alt="lungen" name="Lungen">
+                            <img src="pics/biologie/worte/magen.png" alt="magen" name="Magen">
+                            <img src="pics/biologie/worte/nieren.png" alt="nieren" name="Nieren">
+                            <img src="pics/biologie/worte/schilddruese.png" alt="schilddruese" name="Schilddrüse">
+                        </div>
+                        <div class="rätsel">
+                        </div>
+                        <span>
+                            <button class="knopp2" name="Darm"></button>
+                            <button class="knopp3" name="Gehirn"></button>
+                            <button class="knopp4" name="Herz"></button>
+                            <button class="knopp5" name="Leber"></button>
+                            <button class="knopp6" name="Lungen"></button>
+                            <button class="knopp7" name="Schilddrüse"></button>
+                            <button class="knopp8" name="Magen"></button>
+                            <button class="knopp9" name="Nieren"></button>
+                        </span>
+                        <div class="gewonnen">
+                            <p>Hiermit bist du mit der Biologie fertig. Ich hoffe du hast einiges gelernt. Du kannst nun zurück ins Hauptmenü gehen und ein anderes Thema auswählen. Wenn du alle Themen abgeschlossen hat erhälst du am Ende eine Belohnung.</p>
+                            <button class="menu">HauptMenu</button>
+                            <button class="weiter">Weiter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="chemie">
+                <div class="che1">
+                    <div class="tutorial">
+                        <img src="pics/spieleRelevant/avatar_talking.png" alt="spricht" class="kopf">
+                        <div class="bildH">
+                            <img src="pics/chemie/aggregatzustaende.png" alt="aggregatzustaende" class="bild">
+                        </div>
+                        
+                        <div class="sprechblase">
+                            <p></p>
+                            <button class="z">Zurück</button><button class="w">Weiter</button>
+                        </div>
+                        <button class="knopp"><img src="pics/spieleRelevant/anlaufen.png" alt="weiter" width="65" height="65"></button>
+                    </div>
+                    <div class="che1spiel">
+                        <div class="tisch">
+                            <img src="pics/chemie/gas.png" alt="gas">
+                            <img src="pics/chemie/dampf.png" alt="dampf">
+                            <img src="pics/chemie/eis.png" alt="eis">
+                            <img src="pics/chemie/flüssig.png" alt="flüssig">
+                            <img src="pics/chemie/fest.png" alt="fest">
+                            <img src="pics/chemie/wasser.png" alt="wasser">
+                        </div>
+                        <div class="spielH">
+                            <table>
+                                <tr>
+                                    <th></th>
+                                    <th>Festsoff</th>
+                                    <th>Flüssigkeit</th>
+                                    <th>Gas</th>
+                                </tr>
+                                <tr>
+                                    <th>Normale Abbildung</th>
+                                <td><img src="pics/chemie/eis.png" alt="eis"></td>
+                                <td><img src="pics/chemie/wasser.png" alt="wasser"></td>
+                                <td><img src="pics/chemie/dampf.png" alt="dampf"></td>
+                                </tr>
+                                <tr>
+                                    <th>Wissenschaftliche Abbildung</th>
+                                <td><img src="pics/chemie/fest.png" alt="fest"></td>
+                                <td><img src="pics/chemie/flüssig.png" alt="flüssig"></td>
+                                <td><img src="pics/chemie/gas.png" alt="gas"></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="gewonnen">
+                            <p>Herzlichen Glückwunsch du hast das Level geschafft. Wähle nun aus ob du zurück ins Hauptmenü möchtest oder weiter in Chemie arbeiten willst.</p>
+                            <button class="menu">Hauptmenu</button>
+                            <button class="weiter">Weiter</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="che2">
+                    <div class="tutorial">
+                        <img src="pics/spieleRelevant/avatar_suspicion.png" alt="kopf" class="kopf">
+                        <div class="bildH">
+                            <img src="pics/chemie/ph_tutorial.png" alt="ph-werte" class="bild">
+                        </div>
+                        
+                        <div class="sprechblase">
+                            <p></p>
+                            <button class="z">Zurück</button><button class="w">Weiter</button>
+                        </div>
+                        <button class="knopp"><img src="pics/spieleRelevant/anlaufen.png" alt="weiter" width="65" height="65"></button>
+                    </div>
+                    <div class="che2spiel">
+                        <div class="tisch">
+                            <img src="pics/chemie/batterie.png" alt="batterie">
+                            <img src="pics/chemie/beton.png" alt="beton">
+                            <img src="pics/chemie/kaffee.png" alt="kaffee">
+                            <img src="pics/chemie/milch.png" alt="milch">
+                            <img src="pics/chemie/seife.png" alt="seife">
+                            <img src="pics/chemie/zitronen.jpg" alt="zitronen">
+                        </div>
+                        <div class="spielH">
+                            <div class="aufgabe">
+                                <button class="eins" name="batterie"></button>
+                                <button class="zwei" name="zitronen"></button>
+                                <button class="drei" name="kaffee"></button>
+                                <button class="vier" name="milch"></button>
+                                <button class="funf" name="seife"></button>
+                                <button class="sechs" name="beton"></button>
+                            </div>
+                        </div>
+                        <div class="gewonnen">
+                            <p>Herzlichen Glückwunsch du hast das Level geschafft. Wähle nun aus ob du zurück ins Hauptmenü möchtest oder weiter in der Chemie arbeiten willst.</p>
+                            <button class="menu">Hauptmenü</button>
+                            <button class="weiter">Weiter</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="che3">
+                    <div class="tutorial">
+                        <img src="pics/spieleRelevant/avatar_agreeing.png" alt="einverstanden" class="kopf">
+                        <img src="pics/chemie/periodensystem_tut.png" alt="periodensystem" class="bild">
+                        <img src="pics/spieleRelevant/right-arrow.png" alt="pfeil" class="pfeil1">
+                        <img src="pics/spieleRelevant/right-arrow.png" alt="pfeil" class="pfeil2">
+                        <img src="pics/spieleRelevant/right-arrow.png" alt="pfeil" class="pfeil3">
+                        <div class="sprechblase">
+                            <p></p>
+                            <button class="z">Zurück</button><button class="w">Weiter</button>
+                        </div>
+                        <button class="knopp"><img src="pics/spieleRelevant/anlaufen.png" alt="weiter" width="65" height="65"></button>
+                    </div>
+                    <div class="che3spiel">
+                        <div class="aufgabe">
+                            <div class="sprechblase">
+                                <p>
+                                </p>
+                            </div>
+                            <div class="bilder">
+                                <img src="pics/chemie/alkalimetalle.png" alt="alkalimetalle" name="Alkalimetalle">
+                                <img src="pics/chemie/erdalkalimetalle.png" alt="erdalkalimetalle" name="Erdalkalimetalle">
+                                <img src="pics/chemie/halbmetalle.png" alt="halbmetalle" name="Halbmetalle">
+                                <img src="pics/chemie/lanthanoide.png" alt="lanthanoide" name="Lanthanoide">
+                                <img src="pics/chemie/metalle.png" alt="metalle" name="Metalle">
+                                <img src="pics/chemie/nicht_metalle.png" alt="nicht_metalle" name="Nicht Metalle">
+                                <img src="pics/chemie/uebergangsmetalle.png" alt="uebergangsmetalle" name="Übergangsmetalle">
+                                <img src="pics/chemie/edelgase.png" alt="edelgase" name="Edelgase">
+                                <img src="pics/chemie/halogene.png" alt="halogene" name="Halogene">
+                                <img src="pics/chemie/actinoide.png" alt="actinoide" name="Actinoide">
+                            </div>
+                            <div class="farbe">
+                                <button class="alkalimetalle" name="Alkalimetalle">Alkali- <br> metalle</button>
+                                <button class="erdalkalimetalle" name="Erdalkalimetalle">Erdalkali-  <br> metalle</button>
+                                <button class="halbmetalle" name="Halbmetalle">Halb- <br> metalle</button>
+                                <button class="lanthanoide" name="Lanthanoide">Lantha- <br> noide</button>
+                                <button class="metalle" name="Metalle">Metalle</button>
+                                <button class="nicht_metalle" name="Nicht Metalle">Nicht Metalle</button>
+                                <button class="uebergangsmetalle" name="Übergangsmetalle">Übergang-<br> smetalle</button>
+                                <button class="edelgase" name="Edelgase">Edelgase</button>
+                                <button class="halogene" name="Halogene">Halogene</button>
+                                <button class="actinoide" name="Actinoide">Actinoide</button>
+                            </div>                   
+                        </div>
+
+                        <div class="gewonnen">
+                            <p>Du bist fertig mit Chemie! Du kannst nun zurück ins Hauptmenü gehen. Dann kannst du einen anderes Themengebiet auswählen. Wenn du alle Themengebiete fertig hast, bekommst du eine Belohnung.</p>
+                            <button class="menu">Hauptmenu</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="physik">
+                <div class="phy1">
+                    <div class="tutorial">
+                        <img src="pics/spieleRelevant/avatar_suspicion.png" alt="kopf" class="kopf">
+                        <div class="tafel">
+                            <img src="pics/physik/gleichgewichtskonzept/waage_gleichgewicht.png" alt="waage" class="bild">
+                        </div>
+                        <div class="sprechblase">
+                            <p>Test</p>
+                            <button class="z">Zurück</button><button class="w">Weiter</button>
+                        </div>
+                        <button class="knopp"><img src="pics/spieleRelevant/anlaufen.png" alt="weiter" width="65" height="65"></button>
+                    </div>
+                    <div class="phy1spiel">
+                        <div class="level1">
+                            <div class="tisch">
+                                <img src="pics/physik/gleichgewichtskonzept/leichtes_gewicht.png" alt="leicht">
+                                <img src="pics/physik/gleichgewichtskonzept/leichtes_gewicht.png" alt="leicht">
+                                <img src="pics/physik/gleichgewichtskonzept/leichtes_gewicht.png" alt="leicht">
+                                <img src="pics/physik/gleichgewichtskonzept/fettes_gewicht.png" alt="schwer">
+                            </div>
+                            <div class="hintergrund">
+                                <div class="waage">
+
+                                </div> 
+                                <div class="linkeseite">
+                                    <img src="pics/physik/gleichgewichtskonzept/fettes_gewicht.png" alt="schwer">
+                                </div>
+                                <div class="rechteseite">
+                                    <img src="pics/physik/gleichgewichtskonzept/leichtes_gewicht.png" alt="leicht">
+                                    <img src="pics/physik/gleichgewichtskonzept/leichtes_gewicht.png" alt="leicht">
+                                    <img src="pics/physik/gleichgewichtskonzept/fettes_gewicht.png" alt="schwer">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="level2">
+                            <div class="tisch">
+                                <img src="pics/physik/gleichgewichtskonzept/fettes_gewicht.png" alt="schwer">
+                                <img src="pics/physik/gleichgewichtskonzept/leichtes_gewicht.png" alt="leicht">
+                                <img src="pics/physik/gleichgewichtskonzept/leichtes_gewicht.png" alt="leicht">
+                                <img src="pics/physik/gleichgewichtskonzept/leichtes_gewicht.png" alt="leicht">
+                            </div>
+                            <div class="hintergrund">
+                                <div class="waage">
+
+                                </div> 
+                                <div class="linkeseite">
+                                    <img src="pics/physik/gleichgewichtskonzept/fettes_gewicht.png" alt="schwer">
+                                    <img src="pics/physik/gleichgewichtskonzept/leichtes_gewicht.png" alt="leicht">
+                                </div>
+                                <div class="rechteseite">
+                                    <img src="pics/physik/gleichgewichtskonzept/leichtes_gewicht.png" alt="leicht">
+                                    <img src="pics/physik/gleichgewichtskonzept/leichtes_gewicht.png" alt="leicht">
+                                    <img src="pics/physik/gleichgewichtskonzept/leichtes_gewicht.png" alt="leicht">
+                                    <img src="pics/physik/gleichgewichtskonzept/fettes_gewicht.png" alt="schwer">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="level3">
+                            <div class="tisch">
+                                <img src="pics/physik/gleichgewichtskonzept/fettes_gewicht.png" alt="schwer">
+                                <img src="pics/physik/gleichgewichtskonzept/fettes_gewicht.png" alt="schwer">
+                                <img src="pics/physik/gleichgewichtskonzept/leichtes_gewicht.png" alt="leicht">
+                            </div>
+                            <div class="hintergrund">
+                                <div class="waage">
+
+                                </div> 
+                                <div class="linkeseite">
+                                    <img src="pics/physik/gleichgewichtskonzept/leichtes_gewicht.png" alt="leicht">
+                                    <img src="pics/physik/gleichgewichtskonzept/fettes_gewicht.png" alt="schwer">
+                                    <img src="pics/physik/gleichgewichtskonzept/fettes_gewicht.png" alt="schwer">
+                                    <img src="pics/physik/gleichgewichtskonzept/leichtes_gewicht.png" alt="leicht">
+                                    <img src="pics/physik/gleichgewichtskonzept/leichtes_gewicht.png" alt="leicht">
+                                </div>
+                                <div class="rechteseite">
+                                    <img src="pics/physik/gleichgewichtskonzept/fettes_gewicht.png" alt="schwer">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="gewonnen">
+                            <p>Vielen Dank das du die Waage wieder ins Gleichgewicht gebracht hast. Nun kannst du dir aussuchen ob du wieder ins Hauptmenü zurückkehren möchtest, oder weiter die Physik zu erkunden.</p>
+                            <button class="menu">Hauptmenü</button>
+                            <button class="naechstesLvL">Nächstes Level</button>
+                        </div>
+                        <button class="weiter"><img src="pics/spieleRelevant/anlaufen.png" alt="weiter" width="65" height="65"></button>
+                        <button class="nochmal"><img src="pics/spieleRelevant/refresh.png" alt="nochmal" width="65" height="65"></button>
+                    </div>
+                </div>
+                <div class="phy2">
+                    <div class="tutorial">
+                        <img src="pics/spieleRelevant/avatar_suspicion.png" alt="kopf" class="kopf">
+                        <div class="tafel">
+                            <img src="pics/physik/magnetismus/magnet_yuhu.png" alt="magnetismus" class="bild">    
+                        </div>
+                        <div class="sprechblase">
+                            <p></p>
+                            <button class="z">Zurück</button><button class="w">Weiter</button>
+                        </div>
+                        <button class="knopp"><img src="pics/spieleRelevant/anlaufen.png" alt="weiter" width="65" height="65"></button>
+                    </div>
+                    <div class="phy2spiel">
+
+                        <div class="dreher">
+                            <button class="linksdreher"></button>
+
+                            <img src="pics/physik/Magnetismus/magnet.png" alt="leer">
+
+                            <button class="rechtsdreher"></button>
+                        </div>
+
+                        <div class="level1">
+                            <div class="arbeitsflaeche">
+                                <div class="aufgabe1">
+                                    <div class="loesung">
+                                        <p>Abstoßen</p>
+                                    </div>
+                                    <img src="pics/physik/Magnetismus/magnet.png" alt="oben" name="objekt1">
+                                    <p class="st">+</p>
+                                    <img src="pics/physik/Magnetismus/magnet.png" alt="links" name="objekt2">
+                                    <p class="nd">=</p>
+                                </div>
+    
+                                <button class="auf1akzept"></button>
+    
+                                <div class="aufgabe2">
+                                    <div class="loesung">
+                                        <p>Abstoßen</p>
+                                    </div>
+                                    <img src="pics/physik/Magnetismus/magnet.png" alt="unten" name="objekt1">
+                                    <p class="st">+</p>
+                                    <img src="pics/physik/Magnetismus/magnet.png" alt="rechts" name="objekt2">
+                                    <p class="nd">=</p>
+                                </div>
+    
+                                <button class="auf2akzept"></button>
+    
+                                <div class="aufgabe3">
+                                    <div class="loesung">
+                                        <p>Anziehend</p>
+                                    </div>
+                                    <img src="pics/physik/Magnetismus/magnet.png" alt="links" name="objekt1">
+                                    <p class="st">+</p>
+                                    <img src="pics/physik/Magnetismus/magnet.png" alt="rechts" name="objekt2">
+                                    <p class="nd">=</p>
+                                </div>
+    
+                                <button class="auf3akzept"></button>
+                            </div>
+                        </div>
+
+                        <div class="level2">
+
+                        </div>
+
+                        <div class="level3">
+
+                        </div>
+
+                        <div class="gewonnen">
+                            <p>Danke das du die Magnete wieder in die richtige Position gebracht hast. Wähle nun aus ob du tiefer in die Physik gehen möchtest oder zurück zum Hauptmenü willst. </p>
+                            <button class="menu">Haupt Menu</button>
+                            <button class="weiter">Nächstes Level</button>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="phy3">
+                    <div class="tutorial">
+                        <img src="pics/spieleRelevant/avatar_suspicion.png" alt="kopf" class="kopf">
+                        <div class="tafel">
+                            <div class="bild">
+
+                            </div>
+                        </div>
+                        <div class="sprechblase">
+                            <p></p>
+                            <button class="z">Zurück</button><button class="w">Weiter</button>
+                        </div>
+                        <button class="knopp"><img src="pics/spieleRelevant/anlaufen.png" alt="weiter" width="65" height="65"></button>
+                    </div>
+                    <div class="phy3spiel">
+
+                        <div class="level1">
+                            <div class="tisch">
+                                <img src="pics/physik/elektrik/batterie_200w.png" alt="batterie" width="75" height="75" name="batterie200W">
+                                <img src="pics/physik/elektrik/schalter.png" alt="schalter" width="75" height="75" name="schalter">
+                                <img src="pics/physik/elektrik/lampe_200w.png" alt="lampe" width="75" height="75" name="lampe200W">
+                            </div>
+
+                            <div class="schaltung">
+                                <button class="button1"></button>
+                                <button class="button2"></button>
+                                <button class="button3"></button>
+                            </div>
+
+                            <div class="aufgabenstellung">
+                                <p>Schließe den Stromkreis mit den Elementen</p>
+                            </div>
+
+                        </div>
+
+                        <div class="level2">
+                            <div class="tisch">
+                                <img src="pics/physik/elektrik/batterie_200w.png" alt="batterie" width="75" height="75" name="batterie200W">
+                                <img src="pics/physik/elektrik/batterie_400w.png" alt="batterie" width="75" height="75" name="batterie400W">
+                                <img src="pics/physik/elektrik/batterie_600w.png" alt="batterie" width="75" height="75" name="batterie600W">
+                                <img src="pics/physik/elektrik/schalter.png" alt="schalter" width="75" height="75" name="schalter">
+                                <img src="pics/physik/elektrik/lampe_200w.png" alt="lampe" width="75" height="75" name="lampe200W">
+                                <img src="pics/physik/elektrik/lampe_400w.png" alt="lampe" width="75" height="75" name="lampe400W">
+                            </div>
+
+                            <div class="schaltung">
+                                <button class="button1"></button>
+                                <button class="button2"></button>
+                                <button class="button3"></button>
+                                <button class="button4"></button>
+                            </div>
+
+                            <div class="aufgabenstellung">
+                                <p>Benutze beide Batterien</p>
+                            </div>
+                        </div>
+
+                        <div class="level3">
+                            <div class="tisch">
+                                <img src="pics/physik/elektrik/batterie_200w.png" alt="batterie" width="75" height="75" name="batterie200W">
+                                <img src="pics/physik/elektrik/batterie_400w.png" alt="batterie" width="75" height="75" name="batterie400W">
+                                <img src="pics/physik/elektrik/schalter.png" alt="schalter" width="75" height="75" name="schalter">
+                                <img src="pics/physik/elektrik/schalter.png" alt="schalter" width="75" height="75" name="schalter">
+                                <img src="pics/physik/elektrik/lampe_200w.png" alt="lampe" width="75" height="75" name="lampe200W">
+                                <img src="pics/physik/elektrik/lampe_400w.png" alt="lampe" width="75" height="75" name="lampe400W">
+                            </div>
+
+                            <div class="schaltung">
+                                <button class="button1"></button>
+                                <button class="button2"></button>
+                                <button class="button3"></button>
+                                <button class="button4"></button>
+                                <button class="button5"></button>
+                            </div>
+
+                            <div class="aufgabenstellung">
+                                <p>Nutze Einen Schalter</p>
+                            </div>
+                        </div>
+
+                        <button class="weiter"><img src="pics/spieleRelevant/anlaufen.png" alt="weiter" width="65" height="65"></button>
+
+                        <button class="nochmal"><img src="pics/spieleRelevant/refresh.png" alt="nochmal" width="65" height="65"></button>
+
+                        <div class="gewonnen">
+                            <p>Du hast es Geschaft! Hiermit ist die Physik nun zu Ende! Wenn du alle Abschnitte durchgespielt hast erwartet dich am Ende noch eine Belohnung, also probier die anderen ruhig aus!</p>
+                            <button class="weiter"></button>
+                            <button class="menu">HauptMenü</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="failfeld">
+                <p>Du hast es Geschafft deine Leben zu verbrauchen. Nun hast du die Auswahl ins Hauptmenü zurückzukehren, um einen anderen Kurs zu starten. Oder das Level nochmal zu Versuchen.</p>
+                <button class="menu">Hauptmenü</button>
+                <button class="nochmal">Nochmal Versuchen</button>
+            </div>
+            <div id="abschluss">
+                <img src="pics/spieleRelevant/avatar_standing.png" alt="Professor" width="300" height="600">
+
+                <div class="sprechblase">
+                    <p>Herzlichen Glückwunsch! Du hast es Geschafft. Ich als Professor gebe dir nun die Erlaubnis dich selber "Wissenschaftler" zu nennen. Ich bin sehr stolz auf dich und hoffe dass du dich in Zukunft auch weiterhin für die Wissenschaft interessierst.<p>
+                    <button class="credits">Credits</button>
+                    <a href="dokumente/Urkunde.pdf" target="_blank">PDF Download</a>
+                </div>
+                
+            </div>
+            <div id="credits">
+                <div class="sprechblase">
+                    <h2>Ein Spiel von Stefan Ehmann und Ela Glatzeder</h2>
+                    <br>
+                    <h3>Grafiken</h3>
+                    <br>
+                    <a target="_blank" href="https://www.flaticon.com">Icons</a>
+                    <a target="_blank" href="https://www.freepik.com">Hintergrund Bilder</a>
+                    <a target="_blank" href="https://www.chartjs.org/">Graph fürs Hauptmenü</a>
+                    <br>
+                    <br>
+                    <h3>Urkunde Runterladen</h3>
+                    <br>
+                    <a href="dokumente/Urkunde.pdf" target="_blank">PDF Download</a>
+                </div>
+            </div>
+            <div id="easteregg">
+                <p>Huu Easter egg</p>
+                <img src="pics/spieleRelevant/avatar_standing.png" alt="Professor1" width="300" height="600">
+                <img src="pics/spieleRelevant/avatar_standing.png" alt="Professor2" width="300" height="600">
+                <img src="pics/spieleRelevant/anlaufen.png" alt="weiter1" width="65" height="65">
+                <img src="pics/spieleRelevant/anlaufen.png" alt="weiter2" width="65" height="65">
+            </div>
+        </div>   
+    </body>
+</html>
