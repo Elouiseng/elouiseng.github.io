@@ -19,7 +19,7 @@
 
 html {
 	background-color: var(--background);
-	font-size: 1rem;	
+	font-size: 1.25rem;	
 }
 
 body p {
@@ -149,20 +149,21 @@ header .header-nav a:focus {
 	margin: 25px 10px;
 }
 
-.contact-form {
+.div-contact .contact-form {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
 }
 
-.contact-form label {
+.div-contact .contact-form label {
 	font-family: var(--headerFont);
 	color: var(--header);
 	margin-bottom: 3px;
 	font-size: 1.1rem;
 }
 	
-.contact-form input, textarea {
+.div-contact .contact-form input,
+ .div-contact .contact-form textarea {
 	width: 100%;
 	font-size: 0.9rem;
 	height: auto;
@@ -174,7 +175,7 @@ header .header-nav a:focus {
 	background-color: var(--background);
 }
 
-.contact-form button {
+.div-contact .contact-form button {
 	width: 25%;
 	height: auto;
 	padding: 8px;
@@ -186,46 +187,41 @@ header .header-nav a:focus {
 	color: var(--background);
 }
 
-.contact-form button:hover {
+.div-contact .contact-form button:hover {
 	border-radius: 10px;
 }
 
-.contact-form button:focus {
+.div-contact .contact-form button:focus {
 	background-color: var(--accent);
 	color: var(--border);
 }
 
-.contact-form input::placeholder, textarea::placeholder {
+.div-contact .contact-form input::placeholder,
+ .div-contact .contact-form textarea::placeholder {
 	color: var(--accent);
 	opacity: 0.8;
 	font-family: var(--headerFont)
 }
 
 /* Base styling for error on placeholder */
-.contact-form input.contact-null-value-error::placeholder,
-.contact-form textarea.contact-null-value-error::placeholder {
+.div-contact .contact-form input.contact-null-value-error::placeholder,
+.div-contact .contact-form textarea.contact-null-value-error::placeholder {
   color: red !important;
   opacity: 1 !important;
 }
 
-.contact-form textarea {
+.div-contact .contact-form textarea {
 	height: 100px;
 	resize: vertical;
 }
 
-.contact-form input:focus, textarea:focus {
+.div-contact .contact-form input:focus,
+ .div-contact .contact-form textarea:focus {
 	border-radius: 10px;
 	background-color: white;
 }
 
-.main-footer-hr {
-	width: 95%;
-	margin: 0 auto;
-	border: none;
-	border-top: 2px solid var(--border);
-}
-
-/* #endregion MAIN */
+/* #endregion MAIN-INDEX */
 
 
 /* #region MAIN-PROJECTS */
@@ -238,19 +234,16 @@ header .header-nav a:focus {
 .main-projects h1 {
 	align-self: flex-start;
 	font-size: 5rem;
-	margin: 15px;
-	padding: 15px;
+	margin: 10px;
+	padding: 10px;
 	color: var(--accent);
 }
 
 .main-projects h3{
-	color: var(--header);
 	font-size: 2.75rem;
 }
 
 .main-projects p {
-	color: var(--text);
-	font-family: 'Almarai';
 	font-size: 1.25rem;
 }
 
@@ -299,7 +292,7 @@ header .header-nav a:focus {
   On hover, increase the pseudo-element’s opacity for a more visible image 
 */
 .main-projects a:hover::before {
-    opacity: 0.7;
+    opacity: 0.65;
 }
 
 /* 
@@ -344,60 +337,63 @@ header .header-nav a:focus {
     background: url('') center center / cover no-repeat;
 }*/
 
+/*---INNER PROJECTS CSS-----------------------*/
+
 .go-back-projects-bt {
-	margin: 10px;
+	margin: 20px 30px 0 30px;
 	border: none;
 	font-family: 'Almarai';
 	background-color: var(--background);
 	color: var(--accent);
 	font-size: 1.25rem;
+	font-weight: bold;
 }
 
 .go-back-projects-bt:hover {
 	text-decoration: underline;
 }
 
-
-/* #endregion MAIN-PROJECTS */
-
-
-/* #region MAIN-EMPOLIS & MAIN-SAN TORII */
-.mempolis-project .confi-dec {
-	width: fit-content;
-	margin: 15px auto;
-	padding: 15px;
-	font-weight: bold;
-	font-size: 1.15rem;
-	color: var(--accent);
-}
-
-.introduction-div {
+main .introduction-div {
 	display: flex;
 	justify-content: space-between;
 	align-items: stretch;
 }
 
-.introduction-div img, 
-.introduction-div p {
+main .introduction-div img, 
+ main .introduction-div p {
 	margin: 15px;
 	padding: 15px;
 	width: 50%;
 	box-sizing: border-box;
 }
 
-.introduction-div img {
+main .introduction-div img {
 	height: auto;
 	object-fit: contain;
 	flex-shrink: 0;
 }
 
-.introduction-div p {
+main .introduction-div p {
 	overflow: auto;
 	flex-grow: 1;
 }
 
-/*---Project Specifikations table-----------------*/
-.mempolis-project table {
+/* #endregion MAIN-PROJECTS */
+
+
+/* #region MAIN-EMPOLIS */
+.main-empolis .confi-dec {
+	width: fit-content;
+	margin: 0 auto 15px;
+	padding: 15px;
+	font-weight: bold;
+	font-size: 1.15rem;
+	color: var(--accent);
+}
+
+/*---Project specifications table-----------------*/
+
+.main-empolis table {
 	margin: 15px auto;
 	margin-top: 25px;
 	padding: 15px;
@@ -408,7 +404,7 @@ header .header-nav a:focus {
 	border-spacing: 0;
 }
 
-.mempolis-project caption {
+.main-empolis caption {
 	margin: 15px;
 	margin-bottom: 0;
 	padding: 15px;
@@ -417,38 +413,71 @@ header .header-nav a:focus {
 	border-bottom: 3px solid var(--accent);
 }
 
-.mempolis-project th, .mempolis-project td {
+.main-empolis th, .main-empolis td {
 	height: 50px;
 }
 
-.mempolis-project th {
+.main-empolis th {
 	width: 20%;
 	border-right: 3px solid var(--accent);
 }
 
-.mempolis-project table td {
+.main-empolis table td {
 	font-family: var(--textFont);
 	color: var(--text);
 	padding: 5px 10px;
 }
 
-/*---San Torii text-----------------*/
-.msan-torii .introduction-div a {
+/* #endregion MAIN-EMPOLIS */
+
+
+/* #region MAIN-SAN TORII */
+
+.main-san-torii .introduction-div a {
 	color: var(--accent);
 }
-/* #endregion MAIN-EMPOLIS & MAIN-SAN TORII */
+
+.main-san-torii .introduction-div div p {
+	width: 100%;
+}
+
+.main-san-torii .introduction-div div img {
+	display: block;
+	width: 75%;
+	margin: auto;
+}
+
+.main-san-torii h4 {
+	margin: 15px;
+	padding: 15px;
+	text-align: center;
+	font-size: 1.75rem;
+}
+
+/* #endregion */
 
 
 /* #region MAIN-ITS NOT ROCKET SCIENCE */
-.mrocket-science iframe {
-	width: 100%;
-	height: 500px;
+.main-rocket-science .rocket-science-game {
+	width: 85%;
+	aspect-ratio: 16/9;
+	display: block;
 	margin: auto;
 }
+
+
 /* #endregion */
 
 
 /* #region FOOTER */
+
+.main-footer-hr {
+	width: 95%;
+	margin: 0 auto;
+	border: none;
+	border-top: 2px solid var(--border);
+}
+
 footer {
     margin: 15px;
     padding: 15px;
