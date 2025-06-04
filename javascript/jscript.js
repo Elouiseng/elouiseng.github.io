@@ -91,7 +91,7 @@ class MyFooter extends HTMLElement {
 		this.innerHTML = `
 			<hr class="main-footer-hr">
 			<footer>
-				<h3>&#169 Elouiseng 2025</h3>
+				<h3>&#169 2025 Elouiseng</h3>
 			</footer>
 		`;
 	}
