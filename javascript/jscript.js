@@ -28,7 +28,7 @@ function handleSubmit(event) {
     const messageElem = document.getElementById('cfmessage');
     
     // Check if any of the fields are empty
-    if (!nameElem.value || !mailElem.value || !messageElem.value) {
+    /*if (!nameElem.value || !mailElem.value || !messageElem.value) {
 		nameElem.classList.add('contact-null-value-error');
     	mailElem.classList.add('contact-null-value-error');
     	messageElem.classList.add('contact-null-value-error');
@@ -41,7 +41,7 @@ function handleSubmit(event) {
       nameElem.classList.remove('contact-null-value-error');
       mailElem.classList.remove('contact-null-value-error');
       messageElem.classList.remove('contact-null-value-error');
-    }
+    }*/
     
     // For logging, you can still use FormData if you wish:
     const formData = new FormData(event.target);

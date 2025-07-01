@@ -49,13 +49,13 @@
 					write a message, and I'll answer you as soon as I can! I'm looking forward to hear from you. </p>
 			</section>
 
-			<form class="contact-form" autocomplete="off">
+			<form class="contact-form" autocomplete="off" action="https://formsubmit.co/your@email.com" method="POST">
 				<label for="cfname">Name</label>
-				<input type="text" id="cfname" name="cfname" placeholder="*required">
+				<input type="text" id="cfname" name="cfname" placeholder="*required" required>
 				<label for="cfmail">E-Mail</label>
-				<input type="text" id="cfmail" name="cfmail" placeholder="*required">
+				<input type="text" id="cfmail" name="cfmail" placeholder="*required" required>
 				<label for="cfmessage">Message</label>
-				<textarea id="cfmessage" name="cfmessage" placeholder="*required"></textarea>
+				<textarea id="cfmessage" name="cfmessage" placeholder="*required" required></textarea>
 				<button type="submit" id="cfbutton" name="cfsend">Send</button>
 			</form>
 		</div>
