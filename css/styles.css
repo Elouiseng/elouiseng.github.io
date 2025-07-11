@@ -11,10 +11,6 @@
 	--textFont: 'Almarai';
 } 
 
-element.style {
-}
-
-
 * {
 	margin: 0;
 	padding: 0;
@@ -23,7 +19,7 @@ element.style {
 
 html {
 	background-color: var(--background);
-	font-size: 1rem;	
+	font-size: 1.25rem;	
 }
 
 body p {
@@ -57,7 +53,7 @@ button {
 
 
 /* #region HEADER */
-.header {
+header {
 	margin: 15px;
 	padding: 15px;
 	display: flex;
@@ -66,17 +62,16 @@ button {
 	top: 0;
 	right: 0;
 	left: 0;
-	color: var(--header);	
 }
 
-.header-title{
+header .header-title{
 	text-align: left;
 	font-size: 3rem;
 }
 
 /*---Header Nav--------------------*/
 
-.header-nav {
+header .header-nav {
 	display: flex;
 	justify-content: flex-end;
 	gap: 2em;
@@ -85,19 +80,21 @@ button {
 	margin: 0;
 }
 
-.header-nav a {
+header .header-nav a {
 	text-decoration: none;
 	color: var(--text);
 }
 
-.header-nav a:hover {
+header .header-nav a:hover {
 	text-decoration: underline;
 }
 
-.header-nav a:focus {
+header .header-nav a:focus {
 	text-decoration: underline;
 	color: var(--border);
 }
+
+
 
 .header-main-hr {
 	width: 95%;
@@ -111,35 +108,26 @@ button {
 
 /* #region MAIN-INDEX */
 
-.mindex {
+.main-index {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
-.mindex h1 {
-	font-size: 5rem;
-}
-
-.mindex p {
-	color: var(--text);
-	font-family: 'Almarai';
-}
-
 /*---Pinboard--------------------*/
 
-.notification-pinboard {
+.main-index .notification-pinboard {
 	margin: 15px;
 	padding: 15px;
 }
 
-.notification-pinboard h2 {
+.main-index .notification-pinboard h2 {
 	color: red;
 }
 
 /*---Contact--------------------*/
     
-.div-contact {
+.main-index .div-contact {
 	margin: 15px;
 	padding: 15px;
 	width: inherit;
@@ -149,28 +137,33 @@ button {
 	gap: 50px;
 }	
 
-.contact-section-text, .contact-form {
+.div-contact .contact-section-text, .div-contact .contact-form {
 	flex: 1;
 }
 
-.contact-section-text p {
+.div-contact .contact-section-text h1 {
+	font-size: 5rem;
+}
+
+.div-contact .contact-section-text p {
 	margin: 25px 10px;
 }
 
-.contact-form {
+.div-contact .contact-form {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
 }
 
-.contact-form label {
+.div-contact .contact-form label {
 	font-family: var(--headerFont);
-	color: var(--headerFont);
+	color: var(--header);
 	margin-bottom: 3px;
 	font-size: 1.1rem;
 }
 	
-.contact-form input, textarea {
+.div-contact .contact-form input,
+ .div-contact .contact-form textarea {
 	width: 100%;
 	font-size: 0.9rem;
 	height: auto;
@@ -182,7 +175,7 @@ button {
 	background-color: var(--background);
 }
 
-.contact-form button {
+.div-contact .contact-form button {
 	width: 25%;
 	height: auto;
 	padding: 8px;
@@ -194,75 +187,67 @@ button {
 	color: var(--background);
 }
 
-.contact-form button:hover {
+.div-contact .contact-form button:hover {
 	border-radius: 10px;
 }
 
-.contact-form button:focus {
+.div-contact .contact-form button:focus {
 	background-color: var(--accent);
 	color: var(--border);
 }
 
-.contact-form input::placeholder, textarea::placeholder {
+.div-contact .contact-form input::placeholder,
+ .div-contact .contact-form textarea::placeholder {
 	color: var(--accent);
 	opacity: 0.8;
 	font-family: var(--headerFont)
 }
 
 /* Base styling for error on placeholder */
-.contact-form input.contact-null-value-error::placeholder,
-.contact-form textarea.contact-null-value-error::placeholder {
+.div-contact .contact-form input.contact-null-value-error::placeholder,
+.div-contact .contact-form textarea.contact-null-value-error::placeholder {
   color: red !important;
   opacity: 1 !important;
 }
 
-.contact-form textarea {
+.div-contact .contact-form textarea {
 	height: 100px;
 	resize: vertical;
 }
 
-.contact-form input:focus, textarea:focus {
+.div-contact .contact-form input:focus,
+ .div-contact .contact-form textarea:focus {
 	border-radius: 10px;
 	background-color: white;
 }
 
-.main-footer-hr {
-	width: 95%;
-	margin: 0 auto;
-	border: none;
-	border-top: 2px solid var(--border);
-}
-
-/* #endregion MAIN */
+/* #endregion MAIN-INDEX */
 
 
 /* #region MAIN-PROJECTS */
-.mprojects {
+.main-projects {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.mprojects h1 {
+.main-projects h1 {
 	align-self: flex-start;
 	font-size: 5rem;
-	margin: 15px;
-	padding: 15px;
+	margin: 10px;
+	padding: 10px;
 	color: var(--accent);
 }
 
-.mprojects h3{
-	color: var(--header);
+.main-projects h3{
 	font-size: 2.75rem;
 }
 
-.mprojects p {
-	color: var(--text);
-	font-family: 'Almarai';
+.main-projects p {
 	font-size: 1.25rem;
 }
 
-.mprojects a {
+.main-projects a {
     position: relative;
     display: block;
     margin: 15px auto;
@@ -276,12 +261,12 @@ button {
 }
 
 /* Hover effect for links */
-.mprojects a:hover {
+.main-projects a:hover {
     border-radius: 10px;
 	font-weight: bold;
 }
 
-.mprojects a:hover h3 {
+.main-projects a:hover h3 {
     text-decoration: underline;
 }
 
@@ -289,7 +274,7 @@ button {
   Create a pseudo-element that sits behind the <a> and fills its entire box
   Use it for the semi-transparent background image
 */
-.mprojects a::before {
+.main-projects a::before {
     content: "";			/*Generates an empty box before the link's content*/
     position: absolute;
     top: 0;
@@ -306,14 +291,14 @@ button {
 /* 
   On hover, increase the pseudo-element’s opacity for a more visible image 
 */
-.mprojects a:hover::before {
-    opacity: 0.7;
+.main-projects a:hover::before {
+    opacity: 0.65;
 }
 
 /* 
 	Style the actual content container inside the link so it sits on top of the pseudo-element
 */
-.mprojects a div {
+.main-projects a div {
     position: relative;
     z-index: 2;				/*Z-index above the ::before element*/
     height: 100%;
@@ -325,86 +310,90 @@ button {
 }
 
 /* 
-	Override the default background for a specific link by class (this rule comes *after* the general .mprojects a::before rule)
+	Override the default background for a specific link by class (this rule comes *after* the general .main-projects
+ a::before rule)
 */
-.mprojects .a-rocket::before {
+.main-projects .a-rocket::before {
     background: url('../pics/coolestitelbildyo.png') center center / cover no-repeat;
 }
 
-.mprojects .a-torii::before {
+.main-projects .a-torii::before {
     background: url('../pics/san_torii_erstes_level.jpg') center center / cover no-repeat;
 }
 
-/*.mprojects .a-adventures::before {
+/*.main-projects .a-adventures::before {
     background: url('') center center / cover no-repeat;
 }
 
-.mprojects .a-fmp::before {
+.main-projects .a-fmp::before {
     background: url('') center center / cover no-repeat;
 }*/
 
-.mprojects .a-empolis::before {
+.main-projects .a-empolis::before {
     background: url('../pics/empolis_logo_full.jpg') center center / cover no-repeat;
 }
 
-/*.mprojects .a-portfolio::before {
+/*.main-projects .a-portfolio::before {
     background: url('') center center / cover no-repeat;
 }*/
 
+/*---INNER PROJECTS CSS-----------------------*/
+
 .go-back-projects-bt {
-	margin: 10px;
+	margin: 20px 30px 0 30px;
 	border: none;
 	font-family: 'Almarai';
 	background-color: var(--background);
 	color: var(--accent);
 	font-size: 1.25rem;
+	font-weight: bold;
 }
 
 .go-back-projects-bt:hover {
 	text-decoration: underline;
 }
 
-
-/* #endregion MAIN-PROJECTS */
-
-
-/* #region MAIN-EMPOLIS & MAIN-SAN TORII */
-.mempolis-project .confi-dec {
-	width: fit-content;
-	margin: 15px auto;
-	padding: 15px;
-	font-weight: bold;
-	font-size: 1.15rem;
-	color: var(--accent);
-}
-
-.introduction-div {
+main .introduction-div {
 	display: flex;
 	justify-content: space-between;
 	align-items: stretch;
 }
 
-.introduction-div img, 
-.introduction-div p {
+main .introduction-div img, 
+ main .introduction-div p {
 	margin: 15px;
 	padding: 15px;
 	width: 50%;
 	box-sizing: border-box;
 }
 
-.introduction-div img {
+main .introduction-div img {
 	height: auto;
 	object-fit: contain;
 	flex-shrink: 0;
 }
 
-.introduction-div p {
+main .introduction-div p {
 	overflow: auto;
 	flex-grow: 1;
 }
 
-/*---Project Specifikations table-----------------*/
-.mempolis-project table {
+/* #endregion MAIN-PROJECTS */
+
+
+/* #region MAIN-EMPOLIS */
+.main-empolis .confi-dec {
+	width: fit-content;
+	margin: 0 auto 15px;
+	padding: 15px;
+	font-weight: bold;
+	font-size: 1.15rem;
+	color: var(--accent);
+}
+
+/*---Project specifications table-----------------*/
+
+.main-empolis table {
 	margin: 15px auto;
 	margin-top: 25px;
 	padding: 15px;
@@ -415,7 +404,7 @@ button {
 	border-spacing: 0;
 }
 
-.mempolis-project caption {
+.main-empolis caption {
 	margin: 15px;
 	margin-bottom: 0;
 	padding: 15px;
@@ -424,38 +413,71 @@ button {
 	border-bottom: 3px solid var(--accent);
 }
 
-.mempolis-project th, .mempolis-project td {
+.main-empolis th, .main-empolis td {
 	height: 50px;
 }
 
-.mempolis-project th {
+.main-empolis th {
 	width: 20%;
 	border-right: 3px solid var(--accent);
 }
 
-.mempolis-project table td {
+.main-empolis table td {
 	font-family: var(--textFont);
 	color: var(--text);
 	padding: 5px 10px;
 }
 
-/*---San Torii text-----------------*/
-.msan-torii .introduction-div a {
+/* #endregion MAIN-EMPOLIS */
+
+
+/* #region MAIN-SAN TORII */
+
+.main-san-torii .introduction-div a {
 	color: var(--accent);
 }
-/* #endregion MAIN-EMPOLIS & MAIN-SAN TORII */
+
+.main-san-torii .introduction-div div p {
+	width: 100%;
+}
+
+.main-san-torii .introduction-div div img {
+	display: block;
+	width: 75%;
+	margin: auto;
+}
+
+.main-san-torii h4 {
+	margin: 15px;
+	padding: 15px;
+	text-align: center;
+	font-size: 1.75rem;
+}
+
+/* #endregion */
 
 
 /* #region MAIN-ITS NOT ROCKET SCIENCE */
-.mrocket-science iframe {
-	width: 100%;
-	height: 500px;
+.main-rocket-science .rocket-science-game {
+	width: 85%;
+	aspect-ratio: 16/9;
+	display: block;
 	margin: auto;
 }
+
+
 /* #endregion */
 
 
 /* #region FOOTER */
+
+.main-footer-hr {
+	width: 95%;
+	margin: 0 auto;
+	border: none;
+	border-top: 2px solid var(--border);
+}
+
 footer {
     margin: 15px;
     padding: 15px;

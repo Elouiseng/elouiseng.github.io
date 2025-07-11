@@ -2,6 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Elouiseng's Portfolio - A demonstration of my game development and programing skills.</title>
 		
@@ -15,24 +16,34 @@
 	
 	<body>
 		<my-header></my-header>
+
+		<button onclick="history.back()" class="go-back-projects-bt">Go Back</button>
 				
-		<main class="msan-torii">
-			<button onclick="history.back()" class="go-back-projects-bt">Go Back</button>
+		<main class="main-san-torii">
 
 			<div class="introduction-div">
-				<p><span style="font-weight: bold;">"The game “San Torii - Bound to Grief” was developed by the two classes “Game Design” and “Game Development” as part of a student project over the course of two semesters in 2023."</span><br>
-				<br>
-				This was my first game project where I worked in a real studio. Once a week, both classes met for a whole day - from 8am to 3:30pm - and we worked on the game together.<br>
-				<br>
-				The game designers had already started designing the project a month before and were ready to assign us to program it. I would say it was a bit more difficult for them because they had to change or redo a lot of things to make it work in practice. In theory, their previous work was fine, but when we developers started to bring the puzzle and level designs, as well as their assets, into a Unity project, we all ran into problems.<br>
-				<br>
-				The design of some puzzles just wasn't possible in Unity, especially with our skill level. Or they made no sense. In many situations, we developers sat down with the designers and changed their ideas into a working design. In my case, I was running after the people who were responsible for creating the assets because there were no consistent standards. Some sprites were too big, others too small, then the images I needed in black and white had color, or elements I needed to create animations in Unity with, were not well thought out. <br>
-				<br>
-				For more information, please check out the <a href="https://www.bib.de/showreel-san-torii/" target="_blank">San Torii article</a>.</p>
-
-				<img src="../pics/san_torii_main_pic.png" title="san torii">
+				<div>
+					<p><span style="font-weight: bold;">"The game “San Torii - Bound to Grief” was developed by the two classes “Game Design” and “Game Development” as part of a student project over the course of two semesters in 2023."</span><br>
+					<br>
+					For a 2D point-and-click adventure, both classes came together, to built the project in C# with Unity. The game invites players to explore the subconscious world of Hinan (our protagonist), guided by a narrator through three acts—each dripping with its own themes and emotions.<br>
+					<br>
+					This was my very first project in a “real” studio setting. Once a week, from 8 am to 3:30 pm, designers and developers packed into a room to brainstorm, prototype, and ship features. The designers had already sketched out a whole document about aesthetics, mechanics, the story and technology months in advance, but as soon as we dropped code into Unity, reality hit: some design choices simply didn’t translate. Either they were too complex for our skill level or didn’t make sense in practice. So we huddled at the whiteboard, redrew flows, and fine-tuned ideas until every challenge became a working design.<br>
+					<br>
+					I quickly learned that consistency in art assets is everything. I spent more than one coffee break chasing down sprite creators, some images were twice as big as Unity’s grid, others were missing transparent backgrounds, and a handful that were supposed to be black-and-white arrived in full color. Tightening up those standards saved us hours of debugging and let animations run smoothly.<br>
+					<br>
+					My two biggest contributions for the game were, programming the Scroll-Behind-Clouds puzzle, where players slide background clouds on two axes to uncover an origami-bird scroll. I set up each cloud’s movement constraints and programmed the scroll object to appear only once all clouds had moved completely outside its collider. And the Three-Headed Statue puzzle, in which players click each head to hear a part of a story and must figure out which one is lying. A fellow classmate and I built the logic that checks the player’s choice and, on a correct guess, triggers a dramatic animation of the statue bursting into fragments.
+					</p>
+					<img src="../pics/san_torii_wolken-raetsel.gif" alt="Wolken Rätsel" loading="lazy">
+					<p>
+					On top of coding, I took charge of turning the game designer’s drawn sprites into polished Unity animations—importing frames, setting up animation clips, and placing them in the scene so characters and objects came to life exactly where they belonged.<br>
+					<br>
+					Looking back, those two semesters taught me more than just C# and Unity. I learned how to collaborate across disciplines, adapt creative visions to technical reality, and iterate quickly when things didn’t go as planned. Nonetheless, a worthy amount of experience was gathered.<br>
+					</p>
+				</div>
+				<img src="../pics/san_torii_main_pic.png" alt="san torii">
 			</div>
 
+			<h4>For more information, please check out the <a href="https://www.bib.de/showreel-san-torii/" target="_blank">San Torii article</a>.</h4>
 
 		</main>
 		
