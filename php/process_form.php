@@ -37,6 +37,8 @@ if (empty($name) || empty($email) || empty($message)) {
     exit('Invalid input');
 }
 
+header('Content-Type: application/json');
+
 $mail = new PHPMailer(true);
 
 try {
@@ -70,9 +72,15 @@ try {
     $mail->Body    = "Name: {$name}\nEmail: {$email}\n\nMessage:\n{$message}";
 
     $mail->send();
-    echo 'Email sent successfully!';
+    echo json_encode([
+        'success' => true,
+        'message' => 'Email sent successfully!'
+    ]);
 } catch (Exception $e) {
-    echo 'Mailer Error: ' . $mail->ErrorInfo 
-        . ' (' . $e->getMessage() . ')';
+    http_response_code(500);
+    echo json_encode([
+        'success' => false,
+        'message' => $mail->ErrorInfo ?: $e->getMessage()
+    ]);
 }
 ?>
