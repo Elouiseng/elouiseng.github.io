@@ -1,4 +1,4 @@
-console.log('contact_form.js loaded');
+/*console.log('contact_form.js loaded');
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log('DOM fully loaded');
@@ -38,3 +38,4 @@ document.addEventListener('DOMContentLoaded', () => {
     return false;
   });
 });
+*/
