@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!form) return;
 
-  const button = form.querySelector('button[type="submit"]'); // ✅ Get the button
+  const button = form.querySelector('button[type="submit"]'); // ✅ define this!
 
   form.addEventListener('submit', async (e) => {
     console.log('submit event fired');
