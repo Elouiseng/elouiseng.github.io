@@ -60,57 +60,36 @@
 				<button type="submit" id="cfbutton" name="send">Send</button>
 			</form>
 			<script>
-  // Select all your forms (or target specific ones)
-  const forms = document.querySelectorAll('form[action*="formspree.io"]');
+				// Select all your forms (or target specific ones)
+				const forms = document.getElementById("my-contact-form");
 
-  forms.forEach(form => {
-    form.addEventListener('submit', async e => {
-      e.preventDefault();
-      
-      const data = new FormData(form);
-      const endpoint = form.action;
-      
-      try {
-        const res = await fetch(endpoint, {
-          method: 'POST',
-          body: data,
-          headers: { 'Accept': 'application/json' }
-        });
-        
-        const json = await res.json();
-        
-        if (json.ok) {
-          showNotification('Success!', true);
-          form.reset();
-        } else {
-          showNotification('Error: ' + (json.error || 'Try again.'), false);
-        }
-      } catch (err) {
-        showNotification('Network error, please try later.', false);
-      }
-    });
-  });
-
-  // Simple toast notification
-  function showNotification(message, isSuccess) {
-    const toast = document.createElement('div');
-    toast.textContent = message;
-    toast.style.cssText = [
-      'position: fixed',
-      'top: 20px',
-      'right: 20px',
-      'padding: 10px 15px',
-      'border-radius: 4px',
-      'color: white',
-      'background: ' + (isSuccess ? '#4CAF50' : '#F44336'),
-      'box-shadow: 0 2px 6px rgba(0,0,0,0.2)',
-      'z-index: 10000',
-      'font-family: sans-serif'
-    ].join(';');
-    
-    document.body.appendChild(toast);
-    setTimeout(() => toast.remove(), 3000);
-  }
+				forms.forEach(form => {
+					form.addEventListener('submit', async e => {
+					e.preventDefault();
+					
+					const data = new FormData(form);
+					const endpoint = form.action;
+					
+					try {
+						const res = await fetch(endpoint, {
+						method: 'POST',
+						body: data,
+						headers: { 'Accept': 'application/json' }
+						});
+						
+						const json = await res.json();
+						
+						if (json.ok) {
+						window.alert("Message sent successfully!");
+						form.reset();
+						} else {
+						window.alert("Error " + (json.error || "Try again."));
+						}
+					} catch (err) {
+						showNotification('Network error, please try later.', false);
+					}
+					});
+				});
 			</script>
 		</div>
 
