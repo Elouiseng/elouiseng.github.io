@@ -49,7 +49,8 @@
 					write a message, and I'll answer you as soon as I can! I'm looking forward to hear from you. </p>
 			</section>
 
-			<form id="my-contact-form" class="contact-form" autocomplete="off" action="https://formspree.io/f/mpwlrkbo" method="POST">
+			<!--https://formspree.io/forms/mpwlrkbo/submissions-->
+			<form id="my-contact-form" class="contact-form" autocomplete="off" action="https://formspree.io/f/mpwlrkbo" method="POST" accept="application/json">
 				<label for="name">Name</label>
 				<input type="text" id="cfname" name="name" placeholder="*required" required>
 				<label for="mail">E-Mail</label>
@@ -58,6 +59,59 @@
 				<textarea id="cfmessage" name="message" placeholder="*required" required></textarea>
 				<button type="submit" id="cfbutton" name="send">Send</button>
 			</form>
+			<script>
+  // Select all your forms (or target specific ones)
+  const forms = document.querySelectorAll('form[action*="formspree.io"]');
+
+  forms.forEach(form => {
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      
+      const data = new FormData(form);
+      const endpoint = form.action;
+      
+      try {
+        const res = await fetch(endpoint, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+        
+        const json = await res.json();
+        
+        if (json.ok) {
+          showNotification('Success!', true);
+          form.reset();
+        } else {
+          showNotification('Error: ' + (json.error || 'Try again.'), false);
+        }
+      } catch (err) {
+        showNotification('Network error, please try later.', false);
+      }
+    });
+  });
+
+  // Simple toast notification
+  function showNotification(message, isSuccess) {
+    const toast = document.createElement('div');
+    toast.textContent = message;
+    toast.style.cssText = [
+      'position: fixed',
+      'top: 20px',
+      'right: 20px',
+      'padding: 10px 15px',
+      'border-radius: 4px',
+      'color: white',
+      'background: ' + (isSuccess ? '#4CAF50' : '#F44336'),
+      'box-shadow: 0 2px 6px rgba(0,0,0,0.2)',
+      'z-index: 10000',
+      'font-family: sans-serif'
+    ].join(';');
+    
+    document.body.appendChild(toast);
+    setTimeout(() => toast.remove(), 3000);
+  }
+			</script>
 		</div>
 
 		<hr class="inner-seperation-line">
