@@ -75,7 +75,7 @@ header .header-nav {
 	display: flex;
 	justify-content: flex-end;
 	gap: 2em;
-	font-family: 'Almarai';
+	font-family: var(--textFont);
 	font-size: 1.75rem;
 	margin: 0;
 }
@@ -513,6 +513,102 @@ main .introduction-div p {
 
 
 /* #endregion */
+
+
+/* #region MAIN-IDEA FORM */
+
+.main-ideaform {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.main-ideaform p {
+	font-size: larger;
+	font-weight: bold;
+	margin: 10px auto;
+	padding: 5px;
+}
+    
+.main-ideaform form {
+	margin: 15px;
+	padding: 15px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+	gap: 50px;
+	box-sizing: border-box;
+}	
+
+/*---Form--------------------*/
+	
+.idea-form input,
+ .idea-form textarea,
+ .idea-form select {
+	width: 100%;
+	font-size: 0.9rem;
+	height: auto;
+	margin-bottom: 10px;
+	padding: 5px 8px;
+	box-sizing: border-box;
+	border: 2px solid var(--border);
+	border-radius: 20px;
+	background-color: var(--background);
+}
+
+.idea-form select {
+	width: fit-content;
+}
+
+.idea-form button {
+	width: 25%;
+	height: auto;
+	padding: 8px;
+	font-size: 1rem;
+	box-sizing: border-box;
+	border: none;
+	border-radius: 20px;
+	background-color: var(--border);
+	color: var(--background);
+}
+
+.idea-form button:hover {
+	border-radius: 10px;
+}
+
+.idea-form button:focus {
+	background-color: var(--accent);
+	color: var(--border);
+}
+
+.idea-form input::placeholder,
+ .idea-form textarea::placeholder {
+	color: var(--accent);
+	opacity: 0.8;
+	font-family: var(--headerFont)
+}
+
+/* Base styling for error on placeholder */
+.idea-form input.contact-null-value-error::placeholder,
+.idea-form textarea.contact-null-value-error::placeholder {
+  color: red !important;
+  opacity: 1 !important;
+}
+
+.idea-form textarea {
+	height: 100px;
+	resize: vertical;
+}
+
+.idea-form input:focus,
+ .idea-form textarea:focus {
+	border-radius: 10px;
+	background-color: white;
+}
+
+/* #endregion MAIN-IDEA FORM */
 
 
 /* #region FOOTER */
