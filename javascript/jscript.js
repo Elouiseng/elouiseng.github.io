@@ -1,25 +1,3 @@
-document.addEventListener('DOMContentLoaded', () => {
-  
-  const form = document.getElementById('my-contact-form');
-  if (!form) {
-    console.error('Form not found');
-    return;
-  }
-
-  form.addEventListener('submit', event => {
-    event.preventDefault();
-
-    // Gather and log form data
-    const data = Object.fromEntries(new FormData(form));
-    console.log('Form Submission Data:', data);
-
-    // Programmatically submit and then clear the form
-    form.submit();
-    form.reset();
-  });
-
-});
-
 class MyHeader extends HTMLElement {
 	constructor() {
 		super();
