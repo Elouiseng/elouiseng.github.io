@@ -11,6 +11,7 @@
 	<script type="text/javascript" src="./javascript/jscript.js" defer></script>
 
 	<link href='https://fonts.googleapis.com/css?family=Almarai' rel='stylesheet'>
+	<!--$ php -S 0.0.0.0:8000-->
 </head>
 
 <body>
@@ -23,7 +24,7 @@
 			<a class="about-me-nav-link" href="./index.html"> About Me</a>
 			<a class="projects-nav-link" href="./pages/projects.html">Projects</a>
 			<a class="resume-nav-link" href="./documents/elaglatzeder_cv_may2025_eng.pdf" target="_blank"
-				rel="noopener noreferrer">Resume</a>
+				rel="noopener noreferrer">Résumé</a>
 		</div>
 	</header>
 
@@ -51,46 +52,14 @@
 
 			<!--https://formspree.io/forms/mpwlrkbo/submissions-->
 			<form id="my-contact-form" class="contact-form" autocomplete="off" action="https://formspree.io/f/mpwlrkbo" method="POST" accept="application/json">
-				<label for="name">Name</label>
+				<label for="cfname">Name</label>
 				<input type="text" id="cfname" name="name" placeholder="*required" required>
-				<label for="mail">E-Mail</label>
+				<label for="cfmail">E-Mail</label>
 				<input type="text" id="cfmail" name="mail" placeholder="*required" required>
-				<label for="message">Message</label>
+				<label for="cfmessage">Message</label>
 				<textarea id="cfmessage" name="message" placeholder="*required" required></textarea>
 				<button type="submit" id="cfbutton" name="send">Send</button>
 			</form>
-			<script>
-				// Select all your forms (or target specific ones)
-				const forms = document.getElementById("my-contact-form");
-
-				forms.forEach(form => {
-					form.addEventListener('submit', async e => {
-					e.preventDefault();
-					
-					const data = new FormData(form);
-					const endpoint = form.action;
-					
-					try {
-						const res = await fetch(endpoint, {
-						method: 'POST',
-						body: data,
-						headers: { 'Accept': 'application/json' }
-						});
-						
-						const json = await res.json();
-						
-						if (json.ok) {
-						window.alert("Message sent successfully!");
-						form.reset();
-						} else {
-						window.alert("Error " + (json.error || "Try again."));
-						}
-					} catch (err) {
-						showNotification('Network error, please try later.', false);
-					}
-					});
-				});
-			</script>
 		</div>
 
 		<hr class="inner-seperation-line">

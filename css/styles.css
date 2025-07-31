@@ -83,6 +83,7 @@ header .header-nav {
 header .header-nav a {
 	text-decoration: none;
 	color: var(--text);
+	white-space: nowrap;
 }
 
 header .header-nav a:hover {
@@ -154,7 +155,7 @@ header .header-nav a:focus {
 }
 
 .div-contact .contact-form {
-	display: flex;
+
 	flex-direction: column;
 	justify-content: space-evenly;
 }
@@ -177,6 +178,7 @@ header .header-nav a:focus {
 	border: 2px solid var(--border);
 	border-radius: 20px;
 	background-color: var(--background);
+	font-family: var(--textFont);
 }
 
 .div-contact .contact-form button {
@@ -223,6 +225,7 @@ header .header-nav a:focus {
  .div-contact .contact-form textarea:focus {
 	border-radius: 10px;
 	background-color: white;
+	font-family: "Comic Sans MS", "Comic Sans", cursive;
 }
 
 /*---Social Media Notice------------------*/
@@ -379,7 +382,11 @@ header .header-nav a:focus {
     background: url('../pics/empolis_logo_full.jpg') center center / cover no-repeat;
 }
 
-/*.main-projects .a-portfolio::before {
+.main-projects .a-portfolio::before {
+    background: url('../pics/portfolio_header.png') center center / cover no-repeat;
+}
+
+/*.main-projects .a-projectidea::before {
     background: url('') center center / cover no-repeat;
 }*/
 
@@ -515,7 +522,15 @@ main .introduction-div p {
 /* #endregion */
 
 
-/* #region MAIN-IDEA FORM Fucking stubid github*/
+/* #region MAIN-PORTFOLIO */
+
+.main-portfolio p {
+	text-align: center;
+}
+/* #endregion */
+
+
+/* #region MAIN-PROJECT IDEA */
 
 .main-ideaform {
     display: flex;
@@ -560,6 +575,7 @@ main .introduction-div p {
 
 .idea-form select {
 	width: fit-content;
+	padding: auto 25px;
 }
 
 .idea-form button {
@@ -630,3 +646,68 @@ footer {
 }
 
 /* #endregion FOOTER */
+
+/* #region MEDIA QUERY */
+
+@media screen and (max-width: 480px) {
+	html {
+		font-size: 1rem;	
+	}
+
+	main {
+		margin: 10px;
+		padding: 10px;
+	}
+
+	.inner-seperation-line {
+		margin: 10px auto;
+	}
+
+	header {
+		margin: 10px;
+		padding: 10px;
+		flex-direction: column;
+		gap: 15px;
+	}
+
+	header .header-nav {
+		gap: 20px;
+	}
+
+	.main-index .div-contact, .main-index .div-socialmedia {
+		margin: 10px;
+		padding: 10px;
+		flex-direction: column;
+	}	
+
+	main .introduction-div {
+		flex-direction: column;
+	}
+
+	.main-san-torii .introduction-div img {
+		width: 100%;
+	}
+
+	.main-projects .a-portfolio::before {
+		background: url('../pics/portfolio_header_mobile.png') center center / cover no-repeat;
+	}
+}
+
+@media screen and (min-width: 481px) and (max-width: 800px) {
+	html {
+		font-size: 1.15rem;	
+	}
+
+	header .header-nav {
+		flex-direction: column;
+		min-width: 50%;
+		text-align: center;
+		gap: 35px;
+	}
+	
+	.main-index .div-contact, .main-index .div-socialmedia {
+		flex-direction: column;
+	}	
+}
+
+/* #endregion */
