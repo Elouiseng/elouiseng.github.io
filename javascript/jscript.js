@@ -13,7 +13,7 @@ class MyHeader extends HTMLElement {
 				<div class="header-nav">
 					<a class="about-me-nav-link" href="../index.html"> About Me</a>
 					<a class="projects-nav-link" href="../pages/projects.html">Projects</a>
-					<a class="resume-nav-link" href="../documents/elaglatzeder_cv_may2025_eng.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+					<a class="resume-nav-link" href="../documents/elaglatzeder_cv_may2025_eng.pdf" target="_blank" rel="noopener noreferrer">Résumé</a>
 				</div>
 
 			</header>
