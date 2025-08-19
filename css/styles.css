@@ -633,6 +633,7 @@ main .introduction-div p {
  .idea-form textarea:focus {
 	border-radius: 10px;
 	background-color: white;
+	font-family: "Comic Sans MS", "Comic Sans", cursive;
 }
 
 /* #endregion MAIN-IDEA FORM */
